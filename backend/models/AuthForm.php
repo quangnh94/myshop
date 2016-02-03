@@ -20,7 +20,7 @@ class AuthForm extends Model {
     public function attributeLabels() {
         return [
             'email' => 'Email',
-            'password' => 'Mật khẩu',
+            'password' => 'Password',
         ];
     }
 
