@@ -2,9 +2,12 @@
 
 namespace backend\controllers;
 
-use common\components\utils\TextUtils;
-use yii\web\Controller;
+class AuthController extends BaseController {
 
-class AuthController extends Controller {
-    
+    public function actionLogin() {
+        $this->layout = 'auth';
+        
+        return $this->render('auth');
+    }
+
 }

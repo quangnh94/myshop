@@ -12,7 +12,7 @@ return [
     'modules' => [],
     'components' => [
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'common\models\database\Administrator',
             'enableAutoLogin' => true,
         ],
         'authManager' => [
@@ -30,6 +30,7 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'urlManager' => require (__DIR__ . '/urlManager.php'),
     ],
     'params' => $params,
 ];

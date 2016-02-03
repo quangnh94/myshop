@@ -14,12 +14,13 @@ use yii\web\AssetBundle;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class AppAsset extends AssetBundle {
+class AuthAsset extends AssetBundle {
 
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        
+        'css/AdminLTE.min.css',
+        'css/font-awesome.min.css',
     ];
     public $js = [
     ];
