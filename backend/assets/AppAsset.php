@@ -19,9 +19,15 @@ class AppAsset extends AssetBundle {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        
+        'css/AdminLTE.min.css',
+        'css/font-awesome.min.css',
+        'css/skins/_all-skins.min.css',
+        'css/morris.css',
     ];
     public $js = [
+        'js/library/morris.min.js',
+        'js/library/jquery.slimscroll.min.js',
+        'js/library/fastclick.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

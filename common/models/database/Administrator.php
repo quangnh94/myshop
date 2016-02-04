@@ -2,7 +2,8 @@
 
 namespace common\models\database;
 
-use Yii;
+use yii\db\ActiveRecord;
+use yii\web\IdentityInterface;
 
 /**
  * This is the model class for table "administrator".
@@ -14,7 +15,7 @@ use Yii;
  * @property string $authKey
  * @property integer $status
  */
-class Administrator extends \yii\db\ActiveRecord {
+class Administrator extends ActiveRecord implements IdentityInterface {
 
     /**
      * @inheritdoc

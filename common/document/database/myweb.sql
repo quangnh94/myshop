@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2016 at 10:30 AM
+-- Generation Time: Feb 04, 2016 at 11:04 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -35,6 +35,13 @@ CREATE TABLE IF NOT EXISTS `administrator` (
   `status` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `administrator`
+--
+
+INSERT INTO `administrator` (`id`, `password`, `created_at`, `updated_at`, `authKey`, `status`) VALUES
+('quang.nh94@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 1454572217, 1454572217, 'e10adc3949ba59abbe56e057f20f883e', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +53,20 @@ CREATE TABLE IF NOT EXISTS `auth_assignment` (
   `user_id` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `auth_group`
+--
+
+CREATE TABLE IF NOT EXISTS `auth_group` (
+  `id` int(11) NOT NULL,
+  `group_name` varchar(250) NOT NULL,
+  `created_at` int(11) NOT NULL,
+  `updated_at` int(11) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -104,6 +125,12 @@ ALTER TABLE `auth_assignment`
   ADD PRIMARY KEY (`item_name`,`user_id`);
 
 --
+-- Indexes for table `auth_group`
+--
+ALTER TABLE `auth_group`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `auth_item`
 --
 ALTER TABLE `auth_item`
@@ -124,6 +151,15 @@ ALTER TABLE `auth_item_child`
 ALTER TABLE `auth_rule`
   ADD PRIMARY KEY (`name`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `auth_group`
+--
+ALTER TABLE `auth_group`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --

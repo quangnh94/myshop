@@ -12,11 +12,11 @@ use yii\widgets\ActiveForm;
         $form = ActiveForm::begin()
         ?>
         <div class="has-feedback">
-            <?= $form->field($model, 'email')->textInput()->label(false) ?>
+            <?= $form->field($model, 'email')->textInput(['placeholder' => 'Your Email'])->label(false) ?>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="has-feedback">
-            <?= $form->field($model, 'password')->passwordInput()->label(false) ?>
+            <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'Your Password'])->label(false) ?>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="row">
