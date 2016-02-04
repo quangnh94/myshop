@@ -28,6 +28,9 @@ class AppAsset extends AssetBundle {
         'js/library/morris.min.js',
         'js/library/jquery.slimscroll.min.js',
         'js/library/fastclick.min.js',
+        'js/library/bootstrap.min.js',
+        'js/layout/app.min.js',
+        'js/layout/demo.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
