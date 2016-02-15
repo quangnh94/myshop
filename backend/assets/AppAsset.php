@@ -23,14 +23,19 @@ class AppAsset extends AssetBundle {
         'css/font-awesome.min.css',
         'css/skins/_all-skins.min.css',
         'css/morris.css',
+        'css/css.css',
     ];
     public $js = [
         'js/library/morris.min.js',
         'js/library/jquery.slimscroll.min.js',
+        'js/library/popup/ejs.js',
+        'js/library/popup/tmpl.js',
+        'js/library/popup/popup.js',
         'js/library/fastclick.min.js',
         'js/library/bootstrap.min.js',
         'js/layout/app.min.js',
         'js/layout/demo.js',
+        'js/dev/administrator.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
