@@ -147,8 +147,6 @@ class AdministratorController extends BaseController {
                 }
                 return $this->response(new Response(true, "Cấp quyền cho tài khoản " . $params['id'] . " thành công", []));
             }
-        } else {
-            print_r("Vào đây làm gì ? Chú có quyền đâu mà đòi vào !");
         }
     }
 

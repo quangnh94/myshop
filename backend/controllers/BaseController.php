@@ -5,11 +5,29 @@ namespace backend\controllers;
 use common\components\extend\RootController;
 use common\components\output\Response;
 use Yii;
+use yii\helpers\Url;
 
 class BaseController extends RootController {
 
-    public function beforeAction($action) {
-        return parent::beforeAction($action);
+    public function beforeAction($event) {
+        /* Đăng nhập rồi nhưng quay lại trang đăng nhập */
+        if ($event->controller->id == 'auth' && $event->id == 'login' && Yii::$app->user->getId() != null) {
+            return $this->redirect(Url::base());
+        }
+        /* Chưa đăng nhập nhưng lại vào trang khác */
+        if (!($event->controller->id == 'auth' && $event->id == 'login') && Yii::$app->user->getId() == null) {
+            return $this->redirect(Url::to(['auth/login']));
+        }
+
+        /* Bắt quyền có được cấp hay không */
+        if (!in_array($event->controller->id, ["error", "auth"]) && !Yii::$app->user->can($event->controller->id . "_" . $event->id)) {
+//            return $this->redirect(Url::to(["error/notfound"]) . "?params=" . base64_encode(Json::encode(new Response(false, "Bạn không có quyền thực hiện chức năng này", ["id" => $event->id,
+//                                        "actionMethod" => $event->actionMethod,
+//                                        "controller" => $event->controller->id,])
+//            )));
+        }
+
+        return parent::beforeAction($event);
     }
 
     public function response(Response $response, $define = 'json') {

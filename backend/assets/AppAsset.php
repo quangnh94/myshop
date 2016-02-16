@@ -31,6 +31,7 @@ class AppAsset extends AssetBundle {
         'js/library/popup/ejs.js',
         'js/library/popup/tmpl.js',
         'js/library/popup/popup.js',
+        'js/library/popup/ajax.js',
         'js/library/fastclick.min.js',
         'js/library/bootstrap.min.js',
         'js/layout/app.min.js',
