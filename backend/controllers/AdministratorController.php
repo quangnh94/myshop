@@ -10,6 +10,7 @@ use common\models\database\AuthGroup;
 use common\models\database\AuthItem;
 use Yii;
 use yii\data\ActiveDataProvider;
+use yii\helpers\Url;
 use yii\rbac\DbManager;
 
 class AdministratorController extends BaseController {
@@ -29,12 +30,16 @@ class AdministratorController extends BaseController {
                 ]
             ],
         ]);
+        $this->var['breadcumb'] = [
+            Url::to(["administrator/group"]) => "Quản lý nhóm người dùng"
+        ];
+        $this->var['table_name'] = 'Quản lý nhóm người dùng';
         return $this->render('group', [
                     'data' => $provider
         ]);
     }
 
-    public function actionGroupHandle($id = null) {
+    public function actionGrouphandle($id = null) {
         if (empty($id)) {
             $model = new AuthGroup();
             $model->created_at = time();
@@ -61,6 +66,10 @@ class AdministratorController extends BaseController {
                 }
             }
         }
+        $this->var['breadcumb'] = [
+            Url::to(["{$this->controller}/group-handle"]) => "Xử lý chức năng nhóm quyền"
+        ];
+
         return $this->render('add-group', [
                     'model' => $model
         ]);
@@ -71,6 +80,11 @@ class AdministratorController extends BaseController {
         if (!empty($function)) {
             $group = AuthGroup::find()->all();
             $this->staticClient = "administrator.init();";
+            $this->var['breadcumb'] = [
+                Url::to(["administrator/define"]) => "Quản lý định nghĩa quyền"
+            ];
+            $this->var['table_name'] = 'Quản lý định nghĩa quyền';
+
             return $this->render('grid', [
                         'data' => $function,
                         'group' => $group
@@ -103,6 +117,11 @@ class AdministratorController extends BaseController {
 
     public function actionManager() {
         $admin = Administrator::find()->all();
+        $this->var['breadcumb'] = [
+            Url::to(["administrator/manager"]) => "Quản lý cấp quyền quản trị"
+        ];
+        $this->var['table_name'] = 'Quản lý cấp quyền quản trị';
+
         return $this->render('auth', [
                     'data' => $admin
         ]);

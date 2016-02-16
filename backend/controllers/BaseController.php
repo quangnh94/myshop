@@ -21,10 +21,8 @@ class BaseController extends RootController {
 
         /* Bắt quyền có được cấp hay không */
         if (!in_array($event->controller->id, ["error", "auth"]) && !Yii::$app->user->can($event->controller->id . "_" . $event->id)) {
-//            return $this->redirect(Url::to(["error/notfound"]) . "?params=" . base64_encode(Json::encode(new Response(false, "Bạn không có quyền thực hiện chức năng này", ["id" => $event->id,
-//                                        "actionMethod" => $event->actionMethod,
-//                                        "controller" => $event->controller->id,])
-//            )));
+            print_r('Chú làm éo có quyền mà vào đây');
+            die;
         }
 
         return parent::beforeAction($event);
