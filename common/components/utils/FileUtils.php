@@ -72,7 +72,7 @@ class FileUtils {
                 $class = new ReflectionClass($nspace . "\\" . $className);
                 $controllerName = explode("\\", $class->getName());
                 $controllerName = strtolower(explode("Controller", end($controllerName))[0]);
-                if ($controllerName == 'service' || $controllerName == 'base') {
+                if ($controllerName == 'service' || $controllerName == 'base' || $controllerName == 'auth') {
                     continue;
                 }
                 if (!isset($func[$controllerName])) {

@@ -3,6 +3,7 @@
 /* @var $content string */
 
 use backend\assets\AppAsset;
+use backend\widgets\Navigation;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\helpers\Url;
@@ -88,25 +89,8 @@ AppAsset::register($this);
                             </span>
                         </div>
                     </form>
-                    <ul class="sidebar-menu">
-                        <li class="header">MAIN NAVIGATION</li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-dashboard"></i> <span>Dashboard</span></i>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-edit"></i> <span>Forms</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="../forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-                                <li><a href="../forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-                                <li><a href="../forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <?= Navigation::widget() ?>
+                    
                 </section>
                 <!-- /.sidebar -->
             </aside>

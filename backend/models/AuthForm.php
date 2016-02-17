@@ -11,16 +11,16 @@ class AuthForm extends Model {
 
     public function rules() {
         return [
-            [['email', 'password'], 'required'],
-            ['email', 'email'],
+            [['email', 'password'], 'required', 'message' => '{attribute} không được để trống'],
+            ['email', 'string'],
             [['password'], 'string']
         ];
     }
 
     public function attributeLabels() {
         return [
-            'email' => 'Email',
-            'password' => 'Password',
+            'email' => 'Tài khoản',
+            'password' => 'Mật khẩu',
         ];
     }
 

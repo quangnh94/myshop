@@ -50,4 +50,8 @@ class AuthGroup extends \yii\db\ActiveRecord {
         ];
     }
 
+    public static function getGroups() {
+        return self::find()->orderBy('group_name asc')->all();
+    }
+
 }

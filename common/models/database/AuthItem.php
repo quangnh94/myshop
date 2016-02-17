@@ -63,6 +63,12 @@ class AuthItem extends ActiveRecord {
         ];
     }
 
+    public function attributes() {
+        return array_merge(
+                parent::attributes(), ['child']
+        );
+    }
+
     /**
      * @return ActiveQuery
      */
@@ -123,6 +129,10 @@ class AuthItem extends ActiveRecord {
 
     public static function getAuthItemChildsByPrimarykey($parent, $child) {
         return AuthItemChild::findOne(["parent" => $parent, "child" => $child]);
+    }
+
+    public static function getAuthItems() {
+        return self::find()->orderBy('name asc')->all();
     }
 
 }

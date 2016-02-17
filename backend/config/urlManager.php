@@ -4,7 +4,7 @@ return array(
     'class' => 'yii\web\UrlManager',
     'enablePrettyUrl' => true,
     'showScriptName' => 'false',
-    // 'enableStrictParsing' => 'true',
+//    'enableStrictParsing' => 'true',
 //    'suffix' => '.html',
     'rules' => [
     ]

@@ -2,14 +2,21 @@
 
 namespace backend\controllers;
 
-use backend\models\AuthForm;
-use common\models\database\Administrator;
-use Yii;
+use common\models\database\TAccount;
+use yii\helpers\Url;
 
 class FunctionController extends BaseController {
 
-    public function actionLogin() {
-        
+    public function actionIndex() {
+        $admin = TAccount::find()->all();
+        $this->var['breadcumb'] = [
+            Url::to(["administrator/manager"]) => "Quản lý cấp quyền quản trị"
+        ];
+        $this->var['table_name'] = 'Quản lý cấp quyền quản trị';
+
+        return $this->render('auth', [
+                    'data' => $admin
+        ]);
     }
 
 }
