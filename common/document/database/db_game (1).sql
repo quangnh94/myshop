@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2016 at 10:15 AM
+-- Generation Time: Feb 18, 2016 at 10:44 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -182,7 +182,8 @@ CREATE TABLE IF NOT EXISTS `news` (
   `updated_at` int(11) NOT NULL,
   `alias` varchar(250) NOT NULL,
   `status` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL
+  `category_id` int(11) NOT NULL,
+  `images` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------

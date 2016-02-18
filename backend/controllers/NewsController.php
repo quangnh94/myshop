@@ -8,4 +8,8 @@ class NewsController extends BaseController {
         
     }
 
+    public function actionHandle() {
+        
+    }
+
 }
