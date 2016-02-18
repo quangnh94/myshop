@@ -22,7 +22,7 @@ administrator.define = function (id, type) {
     }
 
     $.ajax({
-        url: baseUrl + 'administrator/define-auth',
+        url: baseUrl + 'administrator/defineauth',
         type: "post",
         data: data,
         beforeSend: function () {
@@ -85,7 +85,7 @@ administrator.assign = function (id) {
                             });
 
                             $.ajax({
-                                url: baseUrl + 'administrator/assign-data',
+                                url: baseUrl + 'administrator/assigndata',
                                 type: "post",
                                 data: {data: indexArr, id: id},
                                 beforeSend: function () {

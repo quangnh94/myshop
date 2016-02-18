@@ -12,14 +12,14 @@ class AuthForm extends Model {
     public function rules() {
         return [
             [['email', 'password'], 'required', 'message' => '{attribute} không được để trống'],
-            ['email', 'string'],
+            ['email', 'email'],
             [['password'], 'string']
         ];
     }
 
     public function attributeLabels() {
         return [
-            'email' => 'Tài khoản',
+            'email' => 'Email',
             'password' => 'Mật khẩu',
         ];
     }

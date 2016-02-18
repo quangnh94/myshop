@@ -12,7 +12,7 @@ return [
     'modules' => [],
     'components' => [
         'user' => [
-            'identityClass' => 'common\models\database\TAccount',
+            'identityClass' => 'common\models\database\Administrator',
             'enableAutoLogin' => true,
         ],
         'authManager' => [

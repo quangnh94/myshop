@@ -80,7 +80,7 @@ class AdministratorController extends BaseController {
     /**
      * Định nghĩa quyền sản phẩm
      */
-    public function actionDefineAuth() {
+    public function actionDefineauth() {
         $params = Yii::$app->request->post();
         if (!empty($params)) {
             $item = AuthItem::authItemSave($params);
@@ -123,16 +123,18 @@ class AdministratorController extends BaseController {
     /**
      * Phân quyền quản trị
      */
-    public function actionAssignData() {
+    public function actionAssigndata() {
         $params = \Yii::$app->request->post();
         if (!empty($params)) {
             self::removeAssignmentByUserId($params['id']);
-            $dbManager = new DbManager();
-            $dbManager->init();
-            foreach ($params['data'] as $role) {
-                $assignment = $dbManager->getAssignment($role, $params['id']);
-                if ($assignment == null) {
-                    $dbManager->assign($dbManager->getPermission($role), $params['id']);
+            if (!empty($params['data'])) {
+                $dbManager = new DbManager();
+                $dbManager->init();
+                foreach ($params['data'] as $role) {
+                    $assignment = $dbManager->getAssignment($role, $params['id']);
+                    if ($assignment == null) {
+                        $dbManager->assign($dbManager->getPermission($role), $params['id']);
+                    }
                 }
             }
             return $this->response(new Response(true, "Cấp quyền cho tài khoản thành công", []));

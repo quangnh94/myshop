@@ -35,7 +35,7 @@ class Navigation extends Widget {
         foreach ($assign as $assignment) {
             $var["assignments"][] = $assignment->getAttributes();
         }
-        $var['service'] = $service;
+        $var['services'] = $service;
         $var['group'] = AuthGroup::getGroups();
 
         return $this->render('navigation', [
