@@ -10,6 +10,7 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
+    'defaultRoute' => 'auth/login',
     'components' => [
         'user' => [
             'identityClass' => 'common\models\database\Administrator',

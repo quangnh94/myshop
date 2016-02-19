@@ -15,21 +15,19 @@ use Yii;
  * @property integer $updated_at
  * @property integer $status
  */
-class NewsCategories extends \yii\db\ActiveRecord
-{
+class NewsCategories extends \yii\db\ActiveRecord {
+
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'news_categories';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['category_name', 'alias', 'parent_id', 'created_at', 'status'], 'required'],
             [['parent_id', 'created_at', 'updated_at', 'status'], 'integer'],
@@ -40,8 +38,7 @@ class NewsCategories extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => 'ID',
             'category_name' => 'Category Name',
@@ -49,7 +46,8 @@ class NewsCategories extends \yii\db\ActiveRecord
             'parent_id' => 'Parent ID',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
-            'status' => 'Status',
+            'status' => 'Trạng thái',
         ];
     }
+
 }

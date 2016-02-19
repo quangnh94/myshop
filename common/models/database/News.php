@@ -47,14 +47,15 @@ class News extends \yii\db\ActiveRecord {
     public function attributeLabels() {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'description' => 'Description',
-            'content' => 'Content',
+            'title' => 'Tiêu đề tin',
+            'description' => 'Mô tả tin tức',
+            'content' => 'Nội dung',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'alias' => 'Alias',
-            'status' => 'Status',
+            'status' => 'Trạng thái',
             'category_id' => 'Category ID',
+            'images' => 'Ảnh đại diện'
         ];
     }
 

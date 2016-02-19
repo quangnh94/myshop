@@ -21,6 +21,11 @@ administrator.define = function (id, type) {
         return false;
     }
 
+    if (data.alias == '') {
+        popup.msg("Vui lòng nhập tên quyền định nghĩa tiếng việt");
+        return false;
+    }
+
     $.ajax({
         url: baseUrl + 'administrator/defineauth',
         type: "post",

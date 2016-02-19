@@ -2,17 +2,6 @@
 
 use yii\grid\GridView;
 use yii\helpers\Url;
-
-function drawStatus($data) {
-    if ($data->status == 1)
-        return "<span class='label label-success'>Hoạt động</span>";
-    else
-        return "<span class='label label-danger'>Tạm khóa</span>";
-}
-
-function drawImages($data) {
-    return '<img src="' . Url::base('http') . '/uploads/' . $data->images . '" alt="Ảnh đại diện" width="80" />';
-}
 ?>
 <?php if (Yii::$app->session->hasFlash('error')): ?>
     <div class="alert alert-danger" role="alert"><?= Yii::$app->session->getFlash('error') ?></div>
@@ -34,61 +23,46 @@ function drawImages($data) {
                         'columns' => [
                             [
                                 'class' => 'yii\grid\DataColumn',
-                                'attribute' => 'images',
-                                'header' => 'Ảnh đại diện',
+                                'attribute' => 'name',
+                                'header' => 'Tên tài khoản',
                                 'headerOptions' => ['class' => 'text-center'],
                                 'format' => 'html',
                                 'contentOptions' => ['class' => 'vertical-middle'],
                                 'value' => function ($data) {
-                            return drawImages($data);
+                            return $data->name;
                         },
                             ],
                             [
                                 'class' => 'yii\grid\DataColumn',
-                                'attribute' => 'title',
-                                'header' => 'Tên nhóm',
+                                'attribute' => 'email',
+                                'header' => 'Địa chỉ email',
                                 'headerOptions' => ['class' => 'text-center'],
                                 'format' => 'text',
                                 'contentOptions' => ['class' => 'vertical-middle'],
                                 'value' => function ($data) {
-                            return $data->title;
+                            return $data->email;
                         },
                             ],
                             [
                                 'class' => 'yii\grid\DataColumn',
-                                'attribute' => 'status',
+                                'attribute' => 'Mã bảo mật',
                                 'headerOptions' => ['class' => 'text-center'],
-                                'header' => 'Trạng thái',
+                                'header' => 'Sc',
                                 'contentOptions' => ['class' => 'vertical-middle'],
                                 'format' => 'html',
                                 'value' => function ($data) {
-                            return drawStatus($data);
+                            return $data->sc;
                         },
                             ],
                             [
                                 'class' => 'yii\grid\DataColumn',
-                                'attribute' => 'created_at',
-                                'headerOptions' => ['class' => 'text-center'],
-                                'contentOptions' => ['class' => 'vertical-middle'],
-                                'header' => 'Ngày tạo',
-                                'format' => 'text',
-                                'value' => function ($data) {
-                            return Yii::$app->formatter->asDatetime($data->created_at, 'php:H:i:s d-m-Y');
-                        },
-                            ],
-                            [
-                                'class' => 'yii\grid\DataColumn',
-                                'attribute' => 'created_at',
                                 'headerOptions' => ['class' => 'text-center'],
                                 'format' => 'html',
                                 'contentOptions' => ['class' => 'vertical-middle'],
-                                'header' => 'Chức năng <a onclick="" href="' . Url::base('http') . '/news/handle' . '"><i style="cursor:pointer;
-                            margin-left:5px;
-                            color:green" class="fa fa-plus"></i></a>',
+                                'header' => 'Chức năng',
                                 'value' => function($data) {
                             return '<div class="btn-group">'
-                                    . '<a href="' . Url::base('http') . '/news/handle?id=' . $data->id . '" class="btn btn-primary"><i class="fa fa-cog"></i> Cập nhật</a>'
-                                    . '<a href="' . Url::base('http') . '/news/remove?id=' . $data->id . '" class="btn btn-danger"><i class = "fa fa-trash"></i> Xóa</a>'
+                                    . '<a href="' . Url::base('http') . '/user/update?id=' . $data->id . '" class="btn btn-primary"><i class="fa fa-cog"></i> Cập nhật</a>'
                                     . '</div>';
                         },
                             ],

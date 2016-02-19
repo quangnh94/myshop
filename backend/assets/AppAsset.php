@@ -22,6 +22,7 @@ class AppAsset extends AssetBundle {
         'css/AdminLTE.min.css',
         'css/font-awesome.min.css',
         'css/skins/_all-skins.min.css',
+        'css/bootstrap3-wysihtml5.min.css',
         'css/morris.css',
         'css/css.css',
     ];
@@ -34,10 +35,12 @@ class AppAsset extends AssetBundle {
         'js/library/popup/ajax.js',
         'js/library/fastclick.min.js',
         'js/library/bootstrap.min.js',
+        'js/library/bootstrap3-wysihtml5.all.min.js',
         'js/layout/app.min.js',
         'js/layout/demo.js',
         'js/dev/administrator.js',
         'js/dev/main.js',
+        'js/dev/news.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
