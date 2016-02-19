@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2016 at 10:44 AM
+-- Generation Time: Feb 19, 2016 at 11:16 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -60,14 +60,22 @@ CREATE TABLE IF NOT EXISTS `auth_assignment` (
 --
 
 INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
-('administrator_assigndata', 'quang.nh94@gmail.com', 1455779828),
-('administrator_defineauth', 'quang.nh94@gmail.com', 1455779828),
-('administrator_getigroup', 'quang.nh94@gmail.com', 1455779828),
-('administrator_handle', 'quang.nh94@gmail.com', 1455779828),
-('administrator_index', 'quang.nh94@gmail.com', 1455779828),
-('administrator_item', 'quang.nh94@gmail.com', 1455779828),
-('function_index', 'quang.nh94@gmail.com', 1455779828),
-('home_index', 'quang.nh94@gmail.com', 1455779828);
+('administrator_assigndata', 'quang.nh94@gmail.com', 1455870477),
+('administrator_defineauth', 'quang.nh94@gmail.com', 1455870477),
+('administrator_getigroup', 'quang.nh94@gmail.com', 1455870477),
+('administrator_handle', 'quang.nh94@gmail.com', 1455870477),
+('administrator_index', 'quang.nh94@gmail.com', 1455870477),
+('administrator_item', 'quang.nh94@gmail.com', 1455870477),
+('function_index', 'quang.nh94@gmail.com', 1455870477),
+('home_index', 'quang.nh94@gmail.com', 1455870477),
+('news_handle', 'quang.nh94@gmail.com', 1455870477),
+('news_index', 'quang.nh94@gmail.com', 1455870477),
+('news_remove', 'quang.nh94@gmail.com', 1455870477),
+('newscategory_handle', 'quang.nh94@gmail.com', 1455870477),
+('newscategory_index', 'quang.nh94@gmail.com', 1455870477),
+('newscategory_remove', 'quang.nh94@gmail.com', 1455870477),
+('user_index', 'quang.nh94@gmail.com', 1455870477),
+('user_update', 'quang.nh94@gmail.com', 1455870477);
 
 -- --------------------------------------------------------
 
@@ -91,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `auth_group` (
 
 INSERT INTO `auth_group` (`id`, `group_name`, `created_at`, `updated_at`, `status`, `description`, `alias`) VALUES
 (1, 'Hệ thống', 1455701790, 1455701790, 1, 'Quản lý hệ thống', ''),
-(2, 'Tài khoản', 1455701803, 1455701831, 1, 'Quản lý tài khoản', ''),
+(2, 'Tin tức', 1455701803, 1455790070, 1, 'Quản lý tài khoản', ''),
 (3, 'Khách hàng', 1455783453, 1455783453, 1, 'Quản lý khách hàng', '');
 
 -- --------------------------------------------------------
@@ -124,10 +132,21 @@ INSERT INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `data`, `cr
 ('administrator_handle', 2, 'Hệ thống cập nhật', NULL, NULL, 1455701881, 1455779800, 1, 'Xử lý nhóm quyền'),
 ('administrator_index', 2, 'Hệ thống cập nhật', NULL, NULL, 1455701924, 1455779800, 1, 'Quản lý danh sách quản trị'),
 ('administrator_item', 2, 'Hệ thống cập nhật', NULL, NULL, 1455701962, 1455779801, 1, 'Lấy toàn bộ item quản trị'),
-('function', 1, 'Hệ thống cập nhật', NULL, NULL, 1455702022, 1455779803, 1, 'Quản lý gán quyền người dùng'),
+('function', 1, 'Hệ thống cập nhật', NULL, NULL, 1455702022, 1455850895, 1, 'Quản lý quyền '),
 ('function_index', 2, 'Hệ thống cập nhật', NULL, NULL, 1455702029, 1455779804, 1, 'Quản lý gán quyền người dùng'),
 ('home', 1, 'Hệ thống cập nhật', NULL, NULL, 1455768150, 1455779803, 2, 'Quản lý dashboard'),
-('home_index', 2, 'Hệ thống cập nhật', NULL, NULL, 1455768151, 1455779804, 2, 'Trang chủ dashboard');
+('home_index', 2, 'Hệ thống cập nhật', NULL, NULL, 1455768151, 1455779804, 2, 'Trang chủ dashboard'),
+('news', 1, 'Hệ thống cập nhật', NULL, NULL, 1455790024, 1455790024, 2, 'Quản lý tin tức'),
+('news_handle', 2, 'Hệ thống cập nhật', NULL, NULL, 1455790049, 1455790049, 2, 'Thêm mới , Sửa tin tức'),
+('news_index', 2, 'Hệ thống cập nhật', NULL, NULL, 1455790048, 1455790048, 2, 'Dashboard tin tức'),
+('news_remove', 2, 'Hệ thống cập nhật', NULL, NULL, 1455867048, 1455867048, 2, 'Xóa tin tức'),
+('newscategory', 1, 'Hệ thống cập nhật', NULL, NULL, 1455789996, 1455790011, 2, 'Quản lý nhóm tin tức'),
+('newscategory_handle', 2, 'Hệ thống cập nhật', NULL, NULL, 1455848440, 1455848440, 2, 'Thêm mới , sửa nhóm tin tức'),
+('newscategory_index', 2, 'Hệ thống cập nhật', NULL, NULL, 1455789996, 1455790011, 2, 'Dashboard nhóm tin tức'),
+('newscategory_remove', 2, 'Hệ thống cập nhật', NULL, NULL, 1455850874, 1455850874, 2, 'Xóa nhóm tin tức'),
+('user', 1, 'Hệ thống cập nhật', NULL, NULL, 1455870343, 1455870456, 3, 'Quản lý người dùng'),
+('user_index', 2, 'Hệ thống cập nhật', NULL, NULL, 1455870342, 1455870495, 3, 'Quản lý người dùng'),
+('user_update', 2, 'Hệ thống cập nhật', NULL, NULL, 1455870446, 1455870496, 3, 'Cập nhật thông tin người dùng');
 
 -- --------------------------------------------------------
 
@@ -152,7 +171,15 @@ INSERT INTO `auth_item_child` (`parent`, `child`) VALUES
 ('administrator', 'administrator_index'),
 ('administrator', 'administrator_item'),
 ('function', 'function_index'),
-('home', 'home_index');
+('home', 'home_index'),
+('news', 'news_handle'),
+('news', 'news_index'),
+('news', 'news_remove'),
+('newscategory', 'newscategory_handle'),
+('newscategory', 'newscategory_index'),
+('newscategory', 'newscategory_remove'),
+('user', 'user_index'),
+('user', 'user_update');
 
 -- --------------------------------------------------------
 
@@ -184,7 +211,14 @@ CREATE TABLE IF NOT EXISTS `news` (
   `status` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   `images` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `title`, `description`, `content`, `created_at`, `updated_at`, `alias`, `status`, `category_id`, `images`) VALUES
+(1, '4 lý do khiến các fan Naruto không thể “bỏ rơi” Cuồng Phong Naruto', 'Khai mở hơn 190 server chỉ duy nhất trên một cổng game tại Trung Quốc, nhưng điều đó vẫn chưa đủ để Cuồng Phong Naruto thu hút các gamer. Có 4 lý do chính mà chắc chắn chỉ nghe qua thôi đã khiến các fan Naruto tại Việt Nam không thể “bỏ rơi” tựa game này.', '<p>\r\n\r\n</p><p>Cuồng Phong Naruto ngoài việc cho phép game thủ cắm auto để chiến đấu còn sử dụng hệ thống thao tác điều khiển đặc trưng của dòng game MMORPG. Game thủ sử dụng các phím Q,W,E,R để dùng các kỹ năng và tấn công, nhấn và nhả chuột trái khi di chuyển. Các thao tác trong game đều diễn ra linh hoạt, tốc độ tấn công dồn dập, nhanh gọn tạo nên sự gay cấn trong chiến đấu. 3 phe chính trong truyện là Vũ, Nhẫn, Hiểu đều sở hữu một hệ thống chiến đấu, tính năng hoàn toàn riêng biệt, đó chắc chắn sẽ là nguồn cảm hứng khám phú thú vị cho mỗi game thủ.</p><div><img alt="4 l do khin cc fan Naruto khng th b ri Cung Phong Naruto" src="http://channel.vcmedia.vn/prupload/441/2016/02/img_201602181725511613.jpg"></div><p><em>Hệ thống thao tác điều khiển có sẵn giúp các game thủ chủ động hơn trong việc chọn lựa skill khi lâm trận.</em></p><p><strong>4. Hệ thống tính năng độc đáo, phong phú</strong></p><p>Bên cạnh nhiều tính năng quen thuộc của dòng game MMORPG, Cuồng Phong Naruto còn sở hữu nhiều tính năng đặc sắc, có khả năng phá vỡ mọi giới hạn của game nhập vai truyền thống chắc chắn sẽ mang đến cho người chơi nhiều trải nghiệm thú vị. Tất cả những tính năng này đều luôn hướng tới một mục tiêu duy nhất là kết nối các game thủ với nhau, cùng chung tay tạo nên một “Làng Lá” Cuồng Phong Naruto lớn mạnh và bền vững.</p><div><img alt="4 l do khin cc fan Naruto khng th b ri Cung Phong Naruto" src="http://channel.vcmedia.vn/prupload/441/2016/02/img_201602181726112514.jpg"></div><p><em>Game sở hữu một loạt các tính năng độc đáo, không tựa game nào có</em></p><p>Có thể kể đến là Đại chiến Ninja nơi diễn ra cuộc chiến không khoan nhượng của những cao thủ mạnh nhất thuộc 3 phe Vũ, Nhẫn, Hiểu, chiến trường với sức chứa 4000 người giúp thỏa ước mong tỉ thí của mọi gamer; Chiêu hoán Ninja cho phép gamer chiêu mộ và thay đổi tùy ý nhiều các Ninja, mỗi Ninja sở hữu một chiêu thức và thể thuật khác nhau hay Triệu hồi chi thuật là chiêu thức mà khi học được, gamer có thể sẽ triệu hồi được Vua rắn Manda, Cóc đại Gamabunta… để hỗ trợ chiến đấu.</p>\r\n\r\n<br><p></p>', 1455857039, 1455866770, '4-ly-do-khien-cac-fan-naruto-khong-the-bo-roi-cuong-phong-naruto', 1, 5, '145586677012744017_1270529839627508_2001579090868106617_n.jpg');
 
 -- --------------------------------------------------------
 
@@ -198,9 +232,17 @@ CREATE TABLE IF NOT EXISTS `news_categories` (
   `alias` varchar(250) NOT NULL,
   `parent_id` int(11) NOT NULL,
   `created_at` int(11) NOT NULL,
-  `updated_at` tinyint(4) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `updated_at` int(4) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `news_categories`
+--
+
+INSERT INTO `news_categories` (`id`, `category_name`, `alias`, `parent_id`, `created_at`, `updated_at`, `status`) VALUES
+(3, 'Tin tức e-Sports', 'tin-tuc-e-sports', 0, 1455849326, 1455850735, 1),
+(5, 'Tin tức hàng ngày', 'tin-tuc-hang-ngay', 0, 1455850932, 1455850932, 1);
 
 -- --------------------------------------------------------
 
@@ -287,7 +329,7 @@ CREATE TABLE IF NOT EXISTS `t_account` (
 --
 
 INSERT INTO `t_account` (`accountid`, `name`, `pwd`, `pw2`, `sc`, `pp`, `city`, `bd`, `pv`, `pt`, `el`, `ac`, `ai`, `lr`, `ld`, `ls`, `le`, `ll`, `ct`, `cn`, `ot`, `vt`, `vl`, `p1`, `p2`, `lg`, `lt`, `ck`, `gd`, `st`, `cc`, `ut`, `cr`, `dc`, `di`, `ic`, `do`, `oc`, `gn`, `bc`, `cy`, `cs`, `cm`, `mc`, `uc`, `svc`, `svcc`, `svd`, `svdc`, `svb`, `svbc`, `pwt`, `pwp1`, `pwp2`, `pwp3`, `email`) VALUES
-(2, 'hope90', 'c8837b23ff8aaa8a2dde915473ce0991', NULL, 'c8837b23ff8aaa8a2dde915473ce0991', NULL, NULL, 0, 9, 0, 0, NULL, NULL, NULL, 0, 0, 0, 1455676638, 0, 0, 68145, 0, 0, 0, 0, 0, 0, 63178, 916994, 0, 0, 83008, 16988, 63964, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '1233211'),
+(2, 'hope90', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'c8837b23ff8aaa8a2dde915473ce0991', NULL, NULL, 0, 9, 0, 0, NULL, NULL, NULL, 0, 0, 0, 1455676638, 0, 0, 68145, 0, 0, 0, 0, 0, 0, 63178, 916994, 0, 0, 83008, 16988, 63964, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '1233211'),
 (3, 'anhhaubd', 'fc8bf73fc913878ff417dfb3300a7ba1', NULL, 'c4ca4238a0b923820dcc509a6f75849b', NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 1454407803, 0, 0, 9411, 0, 0, 0, 0, 0, 0, 3177, 960, 0, 0, 39, 32100, 10715, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'chodienkst@gmail.com'),
 (4, 'kadjck', '4297f44b13955235245b2497399d7a93', NULL, '3569684e1c6e192215bd04738308c63e', NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 1454350475, 0, 0, 656, 0, 0, 0, 0, 0, 0, 37250, 889, 0, 0, 110, 10689, 64631, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'andaica1311@gmail.com'),
 (5, 'hoangthanhdk', '00b7691d86d96aebd21dd9e138f90840', NULL, '96e79218965eb72c92a549dd5a330112', NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 39990, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'hoangthanhdk.2212@gmail.com'),
@@ -11184,12 +11226,12 @@ ALTER TABLE `auth_group`
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `news_categories`
 --
 ALTER TABLE `news_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `t_account`
 --
