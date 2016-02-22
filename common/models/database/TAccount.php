@@ -84,7 +84,7 @@ class TAccount extends ActiveRecord implements IdentityInterface {
             [['name', 'pwd', 'pw2', 'sc'], 'string', 'max' => 32],
             [['pp', 'lr'], 'string', 'max' => 250],
             [['city', 'ac', 'ai'], 'string', 'max' => 128],
-            [['name'], 'unique']
+            [['name', 'email'], 'unique']
         ];
     }
 
