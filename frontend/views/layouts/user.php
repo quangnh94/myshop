@@ -34,14 +34,8 @@ AppAsset::register($this);
                 </ul>
                 <div style="clear:both"></div>
             </div>
-            <div id="header" style="width: 950px;">
-                <a id="logo" href="<?= Url::base('http') ?>/trang-chu.html"><img src="<?= Url::base('http') ?>/images/logo_real.png" alt=""></a>
-            </div>
-            <div id="body">
+            <div id="body" style="width: 960px;">
                 <?= $content ?>
-            </div>
-            <div id="footer">
-
             </div>
         </div>
         <?php $this->endBody() ?>

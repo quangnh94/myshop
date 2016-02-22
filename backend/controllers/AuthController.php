@@ -10,7 +10,7 @@ class AuthController extends BaseController {
 
     public function actionLogin() {
         if (!Yii::$app->user->isGuest) {
-            return $this->redirect($this->baseUrl . 'index', 302);
+            return $this->redirect($this->baseUrl . 'home', 302);
         }
         $this->layout = 'auth';
         $model = new AuthForm();

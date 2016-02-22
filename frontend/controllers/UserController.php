@@ -13,8 +13,17 @@ class UserController extends BaseController {
         ];
     }
 
+    public function actionIndex() {
+        $this->layout = 'user';
+        return $this->render('index');
+    }
+
     public function actionChangepass() {
-        
+        $this->layout = 'user';
+    }
+
+    public function actionAddcard() {
+        $this->layout = 'user';
     }
 
 }

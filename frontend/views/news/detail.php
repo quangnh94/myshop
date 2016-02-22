@@ -45,44 +45,18 @@ use yii\widgets\LinkPager;
         </div>
     </div>
     <div class="right_data" style="float: right; width: 660px; margin-top: 20px;">
-        <div class="jcarousel-wrapper">
-            <div class="jcarousel">
-                <ul>
-                    <li><img src="<?= Url::base('http') . '/images/ad3.jpg' ?>" style="width: 100%" alt=""></li>
-                    <li><img src="<?= Url::base('http') . '/images/ad1.jpg' ?>" style="width: 100%" alt=""></li>
-                    <li><img src="<?= Url::base('http') . '/images/ad2.jpg' ?>" style="width: 100%" alt=""></li>
-                </ul>
-            </div>
-            <p class="photo-credits">
-                Photos by <a href="http://www.mw-fotografie.de">Marc Wiegelmann</a>
-            </p>
-            <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
-            <a href="#" class="jcarousel-control-next">&rsaquo;</a>
-            <p class="jcarousel-pagination"></p>
-        </div>
         <!-- CONTENT -->
         <div id="content">
-            <div class="content">
-                <ul class="blog">
-                    <?php if (!empty($models)): ?>
-                        <?php foreach ($models as $key => $val) : ?>
-                            <li>
-                                <a href="<?= Url::base('http') . '/' . $val->alias . '-' . $val->id . '.html' ?>"><img src="<?= dirname(dirname(Url::base())) . '/backend/share/uploads/' . $val->images ?>" alt="Ảnh đại diện" width="150" height="150"></a>
-                                <h2><a href="<?= Url::base('http') . '/' . $val->alias . '-' . $val->id . '.html' ?>"><?= $val->title ?></a></h2>
-                                <p>
-                                    <?= $val->description ?>
-                                </p>
-                            </li>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </ul>
-            </div>
-            <div>
-                <?=
-                LinkPager::widget([
-                    'pagination' => $pages,
-                ]);
-                ?>
+            <div class="content" style="margin-top: 10px;">
+                <div>
+                    <p style="font-size: 18px; color: white; font-weight: bold"><?= $new->title ?></p>
+                </div>
+                <div>
+                    <p style="font-weight: bold"><?= $new->description ?></p>
+                </div>
+                <div>
+                    <p><?= $new->content ?></p>
+                </div>
             </div>
         </div>
 

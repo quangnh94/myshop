@@ -21,7 +21,7 @@ class BaseController extends RootController {
         }
 
         /* Chưa đăng nhập nhưng lại vào trang khác */
-        if (($event->controller->id != 'auth') && $event->controller->id != 'index' && Yii::$app->user->getId() == null) {
+        if (($event->controller->id != 'auth') && $event->controller->id != 'index' && $event->controller->id != 'news' && Yii::$app->user->getId() == null) {
             return $this->redirect(Url::to(['auth/login']));
         }
 

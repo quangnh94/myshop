@@ -1,0 +1,2286 @@
+#thewindowbackground {
+    background-color: #000;
+    left: 0;
+    top: 0;
+    opacity: .8;
+    z-index: 990;
+    width: auto;
+    position: absolute;
+    display: none;
+    filter: alpha(opacity=80)}
+#ad_zone_TV {
+    z-index: 1000}
+#bannerPopup {
+    margin: auto;
+    width: 660px;
+    height: 462px;
+    z-index: 1000;
+    position: absolute;
+    display: none;
+    background-color: #000}
+#btClose {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 101;
+    cursor: pointer}
+a#btClose:link,a#btClose:visited {
+    background: url(popup-close.html)/*tpa=http://phongvanthan.com/images/popup-close.png*/ no-repeat;
+    width: 71px;
+    height: 32px;
+    display: block;
+    position: absolute;
+    top: 0;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    text-indent: -9999px}
+a#btClose:hover {
+    background-position: 0 -32px}
+a#btCloseBottom:link,a#btCloseBottom:visited {
+    background: #000;
+    width: 23px;
+    height: 23px;
+    display: block;
+    position: absolute;
+    top: -3px;
+    right: -2px;
+    color: #fff;
+    text-decoration: none;
+    padding: 3px;
+    text-align: center;
+    font-weight: bold}
+#bannerPopupBottom {
+    width: 300px!important;
+    height: 126px!important;
+    z-index: 1000!important;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    display: none;
+    overflow: hidden;
+    padding-top: 26px;
+    border: 0!important}
+#bannerPopupBottom img {
+    border: 1px solid #999}
+#btCloseBottom {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 991;
+    cursor: pointer}
+#boxFlashAds {
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    left: -9999em;
+    top: -9999em}
+.fixedBanner {
+    position: fixed!important}
+form.CheckClose {
+    display: block;
+    float: left;
+    color: #9e9e9e;
+    font-size: 11px;
+    white-space: nowrap}
+#bannerPopup .OptionClose {
+    background: url(bg-check.html)/*tpa=http://phongvanthan.com/images/bg-check.png*/ no-repeat;
+    display: block;
+    height: 30px;
+    width: 345px;
+    float: right;
+    padding-top: 3px}
+a.PopupBtnClose:link,a.PopupBtnClose:visited {
+    background: url(popup-new-cookie-close.html)/*tpa=http://phongvanthan.com/images/popup-new-cookie-close.gif*/ no-repeat;
+    width: 51px;
+    height: 16px;
+    display: block;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    text-indent: -9999px;
+    float: right;
+    margin: 4px 5px 0 0}
+a.PopupBtnClose:hover {
+    background-position: 0 -16px}
+.PopupBG {
+    background: #000}
+#bannerPopup img {
+    padding: 32px 0 0 5px}
+#bannerPopup embed {
+    margin: 32px 0 0 5px}
+ul.Disc li {
+    list-style-type: disc;
+    margin-bottom: 0;
+    padding: 0 0 0 5px;
+    text-align: justify}
+body {
+    font: 15px/22px Tahoma,Arial,Verdana,sans-serif;
+    margin: 0;
+    padding: 0}
+h1,h2,h3,h4,h5,h6,p,form,ul,ul li,ol,ol li,dl,dl dt,dl dd,blockquote {
+    margin: 0;
+    padding: 0}
+ul,ul li,ol,ol li {
+    list-style: none}
+img {
+    border: 0}
+a {
+    outline: 0}
+a:link,a:visited {
+    text-decoration: none}
+a:hover {
+    text-decoration: underline}
+fieldset {
+    border: 0;
+    background: 0;
+    margin: 0;
+    padding: 0}
+fieldset legend {
+    display: none}
+input,select,textarea {
+    font: 15px/22px Tahoma,Arial,Verdana,sans-serif}
+input[type="image"],input[type="submit"] {
+    outline: 0}
+input {
+    vertical-align: baseline;
+    margin: -1px -2px}
+html>body input {
+    vertical-align: text-bottom;
+    margin: 0}
+object,embed {
+    outline: 0}
+.Hidden {
+    display: none}
+.Wrapper {
+    overflow: hidden}
+#topbar {
+    height: 30px}
+a.btn-my-nu {
+    display: block;
+    width: 50px;
+    height: 60px;
+    background: url("btn-my-nu.html")/*tpa=http://phongvanthan.com/images/btn-my-nu.jpg*/ 0 0 no-repeat;
+    text-indent: -999em;
+    z-index: 100}
+a.btn-my-nu:hover {
+    background-position: -50px 0}
+.choi-ngay-act,.choi-ngay-nor,.choi-ngay-off,.tai-mini-client-nor,.tai-game-bg,.bg-leftmenu-act,.bg-leftmenu-nor,.new-server-act,.new-server-nor,.server-status,.dang-ky-nhanh-act,.dang-ky-nhanh-nor,.fullclient-act,.fullclient-nor,.fullclient-off,.miniclient-act,.miniclient-nor,.miniclient-off,.nap-the-act,.nap-the-nor,.mnu-cong-dong-hov,.mnu-cong-dong-nor,.mnu-cong-dong-off,.mnu-cam-nang-hov,.mnu-cam-nang-nor,.mnu-cam-nang-off,.may-chu-act,.may-chu-nor,.may-chu-off,.bt-huong-dan-tan-thu-act,.bt-huong-dan-tan-thu-nor,.bt-huong-dan-tan-thu-off,.bt-tinh-nang-dac-sac-act,.bt-tinh-nang-dac-sac-nor,.bt-tinh-nang-dac-sac-off,.dac-quyen-vip-act,.dac-quyen-vip-dis,.dac-quyen-vip-nor,.fanpage-act,.fanpage-dis,.fanpage-nor,.mnu-su-kien-off,.mnu-thu-vien-hov,.mnu-thu-vien-nor,.mnu-thu-vien-off,.mnu-ho-tro-hov,.mnu-ho-tro-nor,.mnu-ho-tro-off,.mnu-su-kien-hov,.mnu-su-kien-nor,.mnu-tin-tuc-hov,.mnu-tin-tuc-nor,.mnu-tin-tuc-off,.chon-may-chu-act,.chon-may-chu-nor,.dang-nhap-act,.dang-nhap-nor,.mnu-trang-chu-hov,.mnu-trang-chu-nor,.mnu-trang-chu-off,.search-act,.search-nor,.server-nav-left-act,.server-nav-left-nor,.server-nav-right-act,.server-nav-right-nor,.banner-nav-act,.banner-nav-nor,.more-act,.more-nor {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left}
+.choi-ngay-act {
+    background-position: -2px 0;
+    width: 275px;
+    height: 190px}
+.choi-ngay-nor {
+    background-position: -2px -192px;
+    width: 275px;
+    height: 190px}
+.choi-ngay-off {
+    background-position: -2px -384px;
+    width: 275px;
+    height: 190px}
+.tai-mini-client-nor {
+    background-position: -2px -576px;
+    width: 271px;
+    height: 52px}
+.tai-game-bg {
+    background-position: -2px -630px;
+    width: 270px;
+    height: 83px}
+.bg-leftmenu-act {
+    background-position: -2px -715px;
+    width: 250px;
+    height: 42px}
+.bg-leftmenu-nor {
+    background-position: -2px -759px;
+    width: 250px;
+    height: 42px}
+.new-server-act {
+    background-position: -2px -803px;
+    width: 250px;
+    height: 60px}
+.new-server-nor {
+    background-position: -2px -865px;
+    width: 250px;
+    height: 60px}
+.server-status {
+    background-position: -2px -927px;
+    width: 245px;
+    height: 18px}
+.dang-ky-nhanh-act {
+    background-position: -2px -947px;
+    width: 135px;
+    height: 50px}
+.dang-ky-nhanh-nor {
+    background-position: -139px -947px;
+    width: 135px;
+    height: 50px}
+.fullclient-act {
+    background-position: -2px -999px;
+    width: 135px;
+    height: 83px}
+.fullclient-nor {
+    background-position: -139px -999px;
+    width: 135px;
+    height: 83px}
+.fullclient-off {
+    background-position: -2px -1084px;
+    width: 135px;
+    height: 83px}
+.miniclient-act {
+    background-position: -139px -1084px;
+    width: 135px;
+    height: 83px}
+.miniclient-nor {
+    background-position: -2px -1169px;
+    width: 135px;
+    height: 83px}
+.miniclient-off {
+    background-position: -139px -1169px;
+    width: 135px;
+    height: 83px}
+.nap-the-act {
+    background-position: -2px -1254px;
+    width: 135px;
+    height: 50px}
+.nap-the-nor {
+    background-position: -139px -1254px;
+    width: 135px;
+    height: 50px}
+.mnu-cong-dong-hov {
+    background-position: -2px -1306px;
+    width: 126px;
+    height: 60px}
+.mnu-cong-dong-nor {
+    background-position: -130px -1306px;
+    width: 126px;
+    height: 60px}
+.mnu-cong-dong-off {
+    background-position: -2px -1368px;
+    width: 126px;
+    height: 60px}
+.mnu-cam-nang-hov {
+    background-position: -130px -1368px;
+    width: 124px;
+    height: 60px}
+.mnu-cam-nang-nor {
+    background-position: -2px -1430px;
+    width: 124px;
+    height: 60px}
+.mnu-cam-nang-off {
+    background-position: -128px -1430px;
+    width: 124px;
+    height: 60px}
+.may-chu-act {
+    background-position: -2px -1492px;
+    width: 120px;
+    height: 50px}
+.may-chu-nor {
+    background-position: -124px -1492px;
+    width: 120px;
+    height: 50px}
+.may-chu-off {
+    background-position: -2px -1544px;
+    width: 120px;
+    height: 50px}
+.bt-huong-dan-tan-thu-act {
+    background-position: -124px -1544px;
+    width: 110px;
+    height: 180px}
+.bt-huong-dan-tan-thu-nor {
+    background-position: -2px -1596px;
+    width: 110px;
+    height: 180px}
+.bt-huong-dan-tan-thu-off {
+    background-position: -114px -1726px;
+    width: 110px;
+    height: 180px}
+.bt-tinh-nang-dac-sac-act {
+    background-position: -2px -1778px;
+    width: 110px;
+    height: 180px}
+.bt-tinh-nang-dac-sac-nor {
+    background-position: -114px -1908px;
+    width: 110px;
+    height: 180px}
+.bt-tinh-nang-dac-sac-off {
+    background-position: -2px -1960px;
+    width: 110px;
+    height: 180px}
+.dac-quyen-vip-act {
+    background-position: -114px -2090px;
+    width: 110px;
+    height: 180px}
+.dac-quyen-vip-dis {
+    background-position: -2px -2142px;
+    width: 110px;
+    height: 180px}
+.dac-quyen-vip-nor {
+    background-position: -114px -2272px;
+    width: 110px;
+    height: 180px}
+.fanpage-act {
+    background-position: -2px -2324px;
+    width: 110px;
+    height: 180px}
+.fanpage-dis {
+    background-position: -114px -2454px;
+    width: 110px;
+    height: 180px}
+.fanpage-nor {
+    background-position: -2px -2506px;
+    width: 110px;
+    height: 180px}
+.mnu-su-kien-off {
+    background-position: -114px -2636px;
+    width: 101px;
+    height: 60px}
+.mnu-thu-vien-hov {
+    background-position: -2px -2688px;
+    width: 101px;
+    height: 60px}
+.mnu-thu-vien-nor {
+    background-position: -105px -2698px;
+    width: 101px;
+    height: 60px}
+.mnu-thu-vien-off {
+    background-position: -2px -2750px;
+    width: 101px;
+    height: 60px}
+.mnu-ho-tro-hov {
+    background-position: -105px -2760px;
+    width: 96px;
+    height: 60px}
+.mnu-ho-tro-nor {
+    background-position: -2px -2812px;
+    width: 96px;
+    height: 60px}
+.mnu-ho-tro-off {
+    background-position: -100px -2822px;
+    width: 96px;
+    height: 60px}
+.mnu-su-kien-hov {
+    background-position: -2px -2874px;
+    width: 95px;
+    height: 60px}
+.mnu-su-kien-nor {
+    background-position: -99px -2884px;
+    width: 95px;
+    height: 60px}
+.mnu-tin-tuc-hov {
+    background-position: -2px -2936px;
+    width: 90px;
+    height: 60px}
+.mnu-tin-tuc-nor {
+    background-position: -94px -2946px;
+    width: 90px;
+    height: 60px}
+.mnu-tin-tuc-off {
+    background-position: -2px -2998px;
+    width: 90px;
+    height: 60px}
+.chon-may-chu-act {
+    background-position: -186px -2946px;
+    width: 80px;
+    height: 70px}
+.chon-may-chu-nor {
+    background-position: -94px -3008px;
+    width: 80px;
+    height: 70px}
+.dang-nhap-act {
+    background-position: -176px -3018px;
+    width: 80px;
+    height: 70px}
+.dang-nhap-nor {
+    background-position: -2px -3060px;
+    width: 80px;
+    height: 70px}
+.mnu-trang-chu-hov {
+    background-position: -217px -2636px;
+    width: 58px;
+    height: 60px}
+.mnu-trang-chu-nor {
+    background-position: -208px -2698px;
+    width: 58px;
+    height: 60px}
+.mnu-trang-chu-off {
+    background-position: -203px -2760px;
+    width: 58px;
+    height: 60px}
+.search-act {
+    background-position: -236px -1544px;
+    width: 30px;
+    height: 25px}
+.search-nor {
+    background-position: -236px -1571px;
+    width: 30px;
+    height: 25px}
+.server-nav-left-act {
+    background-position: -236px -1598px;
+    width: 30px;
+    height: 30px}
+.server-nav-left-nor {
+    background-position: -236px -1630px;
+    width: 30px;
+    height: 30px}
+.server-nav-right-act {
+    background-position: -236px -1662px;
+    width: 30px;
+    height: 30px}
+.server-nav-right-nor {
+    background-position: -236px -1694px;
+    width: 30px;
+    height: 30px}
+.banner-nav-act {
+    background-position: -246px -1492px;
+    width: 22px;
+    height: 22px}
+.banner-nav-nor {
+    background-position: -246px -1516px;
+    width: 22px;
+    height: 22px}
+.more-act {
+    background-position: -226px -1726px;
+    width: 22px;
+    height: 22px}
+.more-nor {
+    background-position: -250px -1726px;
+    width: 22px;
+    height: 22px}
+body {
+    width: 100%;
+    *zoom: 1}
+body:before,body:after {
+    content: "";
+    display: table}
+body:after {
+    clear: both}
+body {
+    background: url("bg_header.html")/*tpa=http://phongvanthan.com/images/bg_header.jpg*/ center 30px no-repeat #000}
+.BoxThuVien .BorderNoneTop {
+    float: left}
+header {
+    width: 100%;
+    height: 530px;
+    top: 0;
+    background: url("bg_header.html")/*tpa=http://phongvanthan.com/images/bg_header.jpg*/ top center no-repeat;
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;
+    z-index: 1}
+header .Header .logo {
+    display: block;
+    width: 182px;
+    height: 134px;
+    text-indent: -999px;
+    position: absolute;
+    left: 50%;
+    margin-left: -434px}
+
+@media screen and (max-height: 800px) {
+    body {
+    background: url("bg_header_1366.jpg")/*tpa=http://phongvanthan.com/images/bg_header_1366.jpg*/ center 0px no-repeat #000}
+header {
+    background: url("bg_header_1366.jpg")/*tpa=http://phongvanthan.com/images/bg_header_1366.jpg*/ top center no-repeat;
+    height: 370px}
+}
+.Content {
+    position: relative;
+    width: 1000px;
+    margin: auto;
+    display: block;
+    z-index: 2}
+.DangNhap .Content {
+    display: block;
+    margin: 0 10px;
+    overflow: hidden;
+    width: 250px}
+.Left {
+    width: 270px;
+    display: block;
+    float: left}
+.Left .PlayNow1 {
+    height: 120px;
+    margin-top: -75px;
+    margin-left: 0;
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -192px;
+    width: 275px;
+    height: 190px}
+.Left .PlayNow1:hover {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px 0;
+    width: 275px;
+    height: 190px}
+.Left .PlayNow1.Off,.Left .PlayNow1.Off:hover {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -384px;
+    width: 275px;
+    height: 190px;
+    cusor: default}
+.Left object#playNow1 {
+    margin-top: -75px;
+    margin-left: 1px}
+.Left .DownloadContainer1 {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -630px;
+    width: 270px;
+    height: 83px;
+    position: relative;
+    overflow: hidden}
+.Left .DownloadContainer1 .DownLoadMiniClient1 {
+    position: absolute;
+    left: -135px;
+    top: 0;
+    -webkit-transition: left .25s ease;
+    -moz-transition: left .25s ease;
+    -ms-transition: left .25s ease;
+    -o-transition: left .25s ease;
+    transition: left .25s ease;
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -1169px;
+    width: 135px;
+    height: 83px}
+.Left .DownloadContainer1 .DownLoadMiniClient1:hover {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -139px -1084px;
+    width: 135px;
+    height: 83px}
+.Left .DownloadContainer1 .DownLoadMiniClient1.Off,.Left .DownloadContainer1 .DownLoadMiniClient1.Off:hover {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -139px -1169px;
+    width: 135px;
+    height: 83px;
+    cusor: default}
+.Left .DownloadContainer1 .DownLoadFullClient1 {
+    position: absolute;
+    left: 270px;
+    top: 0;
+    -webkit-transition: left .25s ease;
+    -moz-transition: left .25s ease;
+    -ms-transition: left .25s ease;
+    -o-transition: left .25s ease;
+    transition: left .25s ease;
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -139px -999px;
+    width: 135px;
+    height: 83px}
+.Left .DownloadContainer1 .DownLoadFullClient1:hover {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -999px;
+    width: 135px;
+    height: 83px}
+.Left .DownloadContainer1 .DownLoadFullClient1.Off,.Left .DownloadContainer1 .DownLoadFullClient1.Off:hover {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -1084px;
+    width: 135px;
+    height: 83px;
+    cusor: default}
+.Left .DownloadContainer1:hover .DownLoadMiniClient1 {
+    left: 0}
+.Left .DownloadContainer1:hover .DownLoadFullClient1 {
+    left: 135px}
+.Left .DangkyNapthe a.QuickRegister {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -139px -947px;
+    width: 135px;
+    height: 50px;
+    display: block;
+    float: left}
+.Left .DangkyNapthe a.QuickRegister:hover {
+    background-position: 0 -40px;
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -947px;
+    width: 135px;
+    height: 50px}
+.Left .DangkyNapthe a.QuickRegister.Off {
+    background-position: 0 -80px}
+.Left .DangkyNapthe .NapThe {
+    height: 40px;
+    display: block;
+    text-indent: -999px;
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -139px -1254px;
+    width: 135px;
+    height: 50px;
+    float: left}
+.Left .DangkyNapthe .NapThe:hover {
+    background-position: -135px -40px;
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -1254px;
+    width: 135px;
+    height: 50px}
+.Left .DangkyNapthe .NapThe.Off {
+    background-position: -135px -80px}
+.Left a.HoTro:link,.Left a.HoTro:visited {
+    width: 270px;
+    height: 89px;
+    background: url(hotline.jpg)/*tpa=http://phongvanthan.com/images/hotline.jpg*/;
+    background-position: 0 0;
+    display: block;
+    text-indent: -999px;
+    margin-top: 10px;
+    float: left}
+.Left .DangkyNapthe,.Left .Login {
+    float: left;
+    width: 270px}
+.Login {
+    background: url(bg-left-server-061d43.png)/*tpa=http://phongvanthan.com/images/bg-left-server-061d43.png*/}
+.Login .TextBoxDN {
+    width: 160px;
+    float: left;
+    overflow: hidden;
+    display: block;
+    margin: 21px 10px 2px 10px}
+.Login .TextBoxDN input {
+    width: 150px;
+    background: #00172d;
+    color: #84b1c2;
+    padding: 4px;
+    margin: 0 0 8px 0;
+    border: #284254 1px solid;
+    display: block;
+    overflow: hidden;
+    height: 20px}
+.Login .BtSubmit {
+    border: 0;
+    cursor: pointer;
+    float: right;
+    height: 69px;
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -3060px;
+    width: 80px;
+    height: 70px;
+    margin: 20px 10px 0 0}
+.Login .BtSubmit:hover {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -176px -3018px;
+    width: 80px;
+    height: 70px}
+.Login p {
+    color: #84b1c2;
+    clear: both;
+    padding-left: 15px;
+    padding-bottom: 5px}
+.Login p a:link,.Login p a:visited {
+    color: #84b1c2;
+    text-decoration: underline}
+.Login p a:hover {
+    color: #82c0ff}
+.Profile {
+    width: 270px;
+    overflow: hidden;
+    display: block;
+    padding-left: 0}
+.Profile .TextBoxDN {
+    padding: 10px;
+    width: 148px!important;
+    height: 50px;
+    background: #08130b;
+    border: 1px solid #284254;
+    color: #f4d7ff;
+    font-size: 14px;
+    margin: 19px 5px 0 10px}
+.Profile .TextBoxDN img {
+    float: left;
+    margin-right: 10px;
+    padding-top: 5px}
+.Profile .TextBoxDN p {
+    clear: none}
+.Profile .TextBoxDN p span {
+    width: 97px;
+    display: block;
+    float: left;
+    overflow: hidden}
+.Profile a.BtnMayChu {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -94px -3008px;
+    width: 80px;
+    height: 70px;
+    margin-top: 19px}
+.Profile a.BtnMayChu:hover {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -186px -2946px;
+    width: 80px;
+    height: 70px}
+ul.Link {
+    width: 100%;
+    overflow: hidden;
+    padding-left: 10px;
+    margin-bottom: 5px}
+ul.Link li {
+    float: left;
+    list-style: none;
+    padding-right: 10px}
+ul.Link li:nth-child(2) {
+    padding-top: 0;
+    font-size: 16px;
+    color: #84b1c2}
+ul.Link li a {
+    color: #84b1c2;
+    display: block;
+    text-decoration: none;
+    line-height: 16px;
+    font-size: 14px;
+    padding-top: 4px;
+    text-decoration: underline}
+ul.Link li a:hover {
+    color: #82c0ff}
+.MainContent {
+    width: 695px;
+    float: left;
+    overflow: hidden;
+    margin-left: 20px}
+ul.cam-nang {
+    width: 265px;
+    display: block;
+    float: right}
+ul.cam-nang li {
+    float: left;
+    margin: 0 0 5px 10px}
+ul.cam-nang li a.bt-huong-dan-tan-thu:link,ul.cam-nang li a.bt-huong-dan-tan-thu:visited {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -1596px;
+    width: 110px;
+    height: 180px}
+ul.cam-nang li a.bt-huong-dan-tan-thu:hover {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -124px -1544px;
+    width: 110px;
+    height: 180px}
+ul.cam-nang li a.bt-tinh-nang-dac-sac:link,ul.cam-nang li a.bt-tinh-nang-dac-sac:visited {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -114px -1908px;
+    width: 110px;
+    height: 180px}
+ul.cam-nang li a.bt-tinh-nang-dac-sac:hover {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -1778px;
+    width: 110px;
+    height: 180px}
+ul.cam-nang li a.vip:link,ul.cam-nang li a.vip:visited {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -114px -2272px;
+    width: 110px;
+    height: 180px}
+ul.cam-nang li a.vip:hover {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -114px -2090px;
+    width: 110px;
+    height: 180px}
+ul.cam-nang li a.fanpage:link,ul.cam-nang li a.fanpage:visited {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -2506px;
+    width: 110px;
+    height: 180px}
+ul.cam-nang li a.fanpage:hover {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -2324px;
+    width: 110px;
+    height: 180px}
+.tab-content .ListNews,.tab-content .ListEvent {
+    display: block}
+.tab-content .active {
+    display: block}
+div.footer {
+    width: 100%;
+    height: 75px;
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
+    color: #7faabb;
+    padding: 30px 0 110px}
+div.footer .FooterDescription {
+    text-align: left;
+    padding: 0 0 30px}
+div.footer .Copyright a:link,div.footer .Copyright a:visited {
+    color: #7faabb;
+    text-decoration: underline}
+div.footer .Copyright a:hover {
+    color: #7faabb;
+    text-decoration: none}
+div.Theme_GP_Wrapper {
+    background: url("select-server.html")/*tpa=http://phongvanthan.com/images/select-server.jpg*/ no-repeat scroll 0 0;
+    float: left;
+    height: 30px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 260px}
+.ListHeroLogout div.Theme_GP_Wrapper {
+    margin-left: 0}
+.RankingType2 {
+    background: url("select-caothu.html")/*tpa=http://phongvanthan.com/images/select-caothu.jpg*/ no-repeat scroll 0 0!important;
+    width: 196px}
+div.Theme_GP_List {
+    margin: 0;
+    padding: 0;
+    width: 220px;
+    z-index: 100}
+div.Theme_GP_Wrapper p {
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: normal;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    padding: 4px 31px 4px 15px;
+    width: 204px}
+div.Theme_GP_List ul.Theme_GP {
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    width: 250px}
+div.Theme_GP_List ul.Theme_GP li {
+    float: left;
+    font-size: 12px;
+    height: 30px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    width: 250px}
+div.Theme_GP_List ul.SelectUI {
+    background: none repeat scroll 0 0 #001120;
+    border-bottom: 1px solid #4098c7;
+    width: 250px}
+div.Theme_GP_List ul.SelectUI li {
+    border-left: 1px solid #4098c7;
+    border-right: 1px solid #4098c7;
+    width: 250px}
+div.Theme_GP_List ul.SelectUI1 {
+    background: none repeat scroll 0 0 #192133;
+    border-bottom: 1px solid #2f3c5e;
+    width: 190px}
+div.Theme_GP_List ul.SelectUI1 li {
+    border-left: 1px solid #2f3c5e;
+    border-right: 1px solid #2f3c5e;
+    width: 190px}
+div.Theme_GP_List ul.Theme_GP li span {
+    cursor: default;
+    display: block;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bolder;
+    padding: 3px 0 3px 4px}
+div.Theme_GP_List ul.Theme_GP li a:link,div.Theme_GP_List ul.Theme_GP li a:visited {
+    background: none repeat scroll 0 0 #001120;
+    color: #fff;
+    display: block;
+    font-size: 12px;
+    height: 30px;
+    line-height: 29px;
+    overflow: hidden;
+    padding: 0 0 0 10px;
+    text-decoration: none;
+    width: 240px}
+div.Theme_GP_List ul.SelectUI li a:link,div.Theme_GP_List ul.SelectUI li a:visited {
+    background: none repeat scroll 0 0 #30373f;
+    color: #fff}
+div.Theme_GP_List ul.SelectUI1 li a:link,div.Theme_GP_List ul.SelectUI1 li a:visited {
+    background: none repeat scroll 0 0 #3f4348;
+    width: 192px}
+div.Theme_GP_List ul.Theme_GP li.Active a:link,div.Theme_GP_List ul.Theme_GP li.Active a:visited {
+    color: #116283}
+div.Theme_GP_List ul.SelectUI li.Active a:link,div.Theme_GP_List ul.SelectUI li.Active a:visited {
+    color: #05d680}
+div.Theme_GP_List ul.SelectUI1 li.Active a:link,div.Theme_GP_List ul.SelectUI1 li.Active a:visited {
+    color: #ffc000}
+div.Theme_GP_List ul.Theme_GP li.Hover a:link,div.Theme_GP_List ul.Theme_GP li.Hover a:visited {
+    background: none repeat scroll 0 0 #001120;
+    color: #e37819;
+    text-decoration: none}
+div.Theme_GP_List ul.SelectUI1 li.Hover a:link,div.Theme_GP_List ul.SelectUI1 li.Hover a:visited {
+    background: none repeat scroll 0 0 #6d1e15;
+    color: #ffc000;
+    text-decoration: none}
+div.Theme_GP_Modified_Wrapper {
+    display: block;
+    float: left}
+.text-danger {
+    color: #802303;
+    position: absolute;
+    padding: 0 0 0 10px}
+.ServerList {
+    display: block;
+    overflow: hidden;
+    min-height: 456px;
+    float: left;
+    width: 100%;
+    background: url(bg-left-server-061d43.png)/*tpa=http://phongvanthan.com/images/bg-left-server-061d43.png*/ bottom center no-repeat}
+.ServerList h2.DanhSachMayChu {
+    background: url(h2-danh-sach-may-chu.png)/*tpa=http://phongvanthan.com/images/h2-danh-sach-may-chu.png*/ center center no-repeat;
+    text-indent: -9999px;
+    margin: 0}
+.ServerList .ContentServerList {
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 15px;
+    overflow: hidden}
+.ServerList .ContentServerList a.NewServer:link,.ServerList .ContentServerList a.NewServer:visited {
+    color: #e4e1c5;
+    text-decoration: none;
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -865px;
+    width: 250px;
+    height: 60px;
+    text-indent: 0;
+    margin-bottom: 5px}
+.ServerList .ContentServerList a.NewServer:hover {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -803px;
+    width: 250px;
+    height: 60px;
+    text-indent: 0;
+    color: #f9f8e9}
+.ServerList .ContentServerList a.NewServer span {
+    text-align: center;
+    line-height: 22px;
+    overflow: hidden;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 16px;
+    color: #e4e1c5}
+.ServerList .ContentServerList h2.DanhSachMayChu {
+    background: url(h2-danh-sach-may-chu.png)/*tpa=http://phongvanthan.com/images/h2-danh-sach-may-chu.png*/ center center no-repeat}
+.ServerList .ContentServerList .ItemServer ul {
+    position: relative;
+    overflow: hidden}
+.ServerList .ContentServerList .ItemServer ul li {
+    width: 121px;
+    height: 51px;
+    float: left;
+    margin: 3px 8px 4px 0}
+.ServerList .ContentServerList .ItemServer ul li a:link,.ServerList .ContentServerList .ItemServer ul li a:visited {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -124px -1492px;
+    width: 120px;
+    height: 50px;
+    text-indent: 0;
+    text-align: center;
+    line-height: 50px}
+.ServerList .ContentServerList .ItemServer ul li a:hover {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -1492px;
+    width: 120px;
+    height: 50px;
+    text-indent: 0;
+    text-align: center;
+    line-height: 50px;
+    text-decoration: none}
+.ServerList .ContentServerList .ItemServer ul li a .Name {
+    line-height: 20px;
+    display: block;
+    font-family: arial;
+    padding-left: 0;
+    padding-top: 15px;
+    color: #b3eaff}
+.ServerList .ContentServerList .ItemServer ul li span {
+    line-height: 20px;
+    font-family: arial;
+    padding-top: 15px;
+    color: #fffaa6}
+p.history-text {
+    color: #84b1c2;
+    font-size: 14px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    width: 240px;
+    border-top: 1px solid #183248;
+    margin: 0 auto}
+.PlayGameHistory {
+    margin: 0 10px 0;
+    width: 250px}
+.PlayGameHistory ul {
+    height: 110px;
+    overflow: hidden;
+    position: relative;
+    width: 250px}
+.PlayGameHistory ul li {
+    background: none repeat scroll 0 0 #18354c;
+    float: left;
+    margin-bottom: 1px;
+    width: 100%;
+    display: block;
+    overflow: hidden}
+.PlayGameHistory ul li: nth-of-type(2n) {
+    background: none repeat scroll 0 0 #00172d;
+    display: block;
+    overflow: hidden}
+.PlayGameHistory ul li: nth-of-type(2n+1) {
+    background: none repeat scroll 0 0 #18354c;
+    display: block;
+    overflow: hidden}
+.PlayGameHistory ul li a {
+    color: #84b1c2;
+    display: block;
+    font-weight: normal;
+    line-height: 20px;
+    overflow: hidden;
+    position: relative;
+    width: 100%}
+.PlayGameHistory ul li a:hover {
+    color: #84b1c2;
+    font-weight: bold}
+.PlayGameHistory ul li img {
+    border: 1px solid #000;
+    float: left;
+    height: 23px;
+    margin-right: 10px;
+    width: 23px}
+.PlayGameHistory ul li .GameName {
+    display: block;
+    float: left;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 25px}
+.PlayGameHistory ul li .GameName:hover {
+    font-weight: bold}
+.PlayGameHistory ul li .ServerGameName {
+    display: block;
+    float: right;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 25px;
+    padding-right: 10px}
+.jcarousel-wrapper {
+    background: #000;
+    margin: 0 0 0 30px}
+.jcarousel-wrapper .jcarousel-control-prev {
+    left: -30px;
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -236px -1630px;
+    width: 30px;
+    height: 30px}
+.jcarousel-wrapper .jcarousel-control-prev:hover {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -236px -1598px;
+    width: 30px;
+    height: 30px}
+.jcarousel-wrapper .jcarousel-control-prev.Off {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -236px -1630px;
+    width: 30px;
+    height: 30px;
+    opacity: .5}
+.jcarousel-wrapper .jcarousel-control-next {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -236px -1694px;
+    width: 30px;
+    height: 30px;
+    right: -30px;
+    top: 0}
+.jcarousel-wrapper .jcarousel-control-next:hover {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -236px -1662px;
+    width: 30px;
+    height: 30px}
+.jcarousel-wrapper .jcarousel-control-next.Off {
+    opacity: .5}
+.jcarousel ul li a {
+    color: #739bac;
+    font-size: 12px;
+    background: 0;
+    font-weight: bold;
+    width: 60px;
+    height: 18px;
+    display: block;
+    float: left;
+    border-right: 1px solid #739bac;
+    text-align: center;
+    margin-top: 5px;
+    line-height: 21px}
+.jcarousel ul li a.CurPage,.jcarousel ul li a:hover {
+    color: #a1d7ec}
+.loading {
+    color: #fff;
+    padding: 0 0 0 20px}
+.LoginServerList .NewServer {
+    margin-bottom: 6px}
+.LoginServerList .ContentServerList .ItemServer ul li {
+    margin: 0 8px 9px 0}
+.BlockNews {
+    position: relative;
+    width: 430px;
+    float: left;
+    overflow: hidden;
+    margin-bottom: 10px}
+.BlockNews ul.Tab {
+    background: url("bg_title_news.jpg")/*tpa=http://phongvanthan.com/images/bg_title_news.jpg*/ repeat scroll 0 0;
+    padding: 0 0 0 10px;
+    height: 40px}
+.BlockNews ul.Tab li {
+    line-height: 30px;
+    margin-top: 5px;
+    margin-right: 5px;
+    float: left;
+    white-space: nowrap}
+.BlockNews ul.Tab li a:link,.BlockNews ul.Tab li a:visited {
+    display: block;
+    padding: 0 0 0 17px;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap}
+.BlockNews ul.Tab li a:link span,.BlockNews ul.Tab li a:visited span {
+    display: block;
+    padding: 0 17px 5px 0;
+    color: #81b3cc;
+    margin-right: 0;
+    white-space: nowrap;
+    font-weight: bold}
+.BlockNews ul.Tab li.active,.BlockNews ul.Tab li.Active {
+    background: #0d1b25;
+    color: #000}
+.BlockNews ul.Tab li.active a:link,.BlockNews ul.Tab li.Active a:link,.BlockNews ul.Tab li.active a:visited,.BlockNews ul.Tab li.Active a:visited {
+    background: 0;
+    color: #99d1ea}
+.BlockNews ul.Tab li.active a:link span,.BlockNews ul.Tab li.Active a:link span,.BlockNews ul.Tab li.active a:visited span,.BlockNews ul.Tab li.Active a:visited span {
+    font-weight: bold;
+    color: #99d1ea}
+.BlockNews ul.Tab li a:hover {
+    color: #d7eff9;
+    text-decoration: none}
+.BlockNews ul.Tab li a:hover span {
+    color: #d7eff9;
+    text-decoration: none;
+    font-weight: bold}
+.BlockNews ul.Tab li:hover {
+    background: #0d1b25}
+.BlockNews .ListNews {
+    background: #0d1b25;
+    height: 330px;
+    width: 430px}
+.BlockNews .ListNews ul li {
+    width: 430px;
+    height: 31px;
+    overflow: hidden;
+    white-space: nowrap;
+    float: left;
+    border-bottom: 1px solid #162734}
+.BlockNews .ListNews ul li a:link,.BlockNews .ListNews ul li a:visited {
+    display: block;
+    height: 30px;
+    background: url(bg_news.jpg)/*tpa=http://phongvanthan.com/images/bg_news.jpg*/ no-repeat;
+    color: #7fa0bc;
+    white-space: nowrap}
+.BlockNews .ListNews ul li a:link span,.BlockNews .ListNews ul li a:visited span {
+    width: 323px;
+    padding-left: 30px;
+    padding-top: 5px;
+    float: left;
+    display: block;
+    white-space: nowrap}
+.BlockNews .ListNews ul li a:link time,.BlockNews .ListNews ul li a:visited time {
+    width: 47px;
+    padding-top: 7px;
+    padding-left: 30px;
+    float: left;
+    display: block}
+.BlockNews .ListNews ul li a:hover {
+    height: 31px;
+    background-position: 0 -31px;
+    text-decoration: none;
+    color: #99d1ea}
+.BlockNews .ListNews ul li a:hover span {
+    text-decoration: none}
+.BlockNews .ListNews ul li a:hover img {
+    border: 2px solid #c5ac8d!important}
+.BlockNews .ListNews ul li a:hover time {
+    font-weight: normal}
+.BlockNews .ListNews ul li a.Hot:link,.BlockNews .ListNews ul li a.Hot:visited {
+    color: #3f98c0}
+.BlockNews .ListNews ul li.First {
+    height: 130px;
+    overflow: hidden;
+    padding-top: 10px;
+    margin: 0;
+    float: left}
+.BlockNews .ListNews ul li.First a:link,.BlockNews .ListNews ul li.First a:visited {
+    height: 108px;
+    background: #fffff7 url(bg_news_first.jpg)/*tpa=http://phongvanthan.com/images/bg_news_first.jpg*/ no-repeat}
+.BlockNews .ListNews ul li.First a:link:hover .FirstTitle span,.BlockNews .ListNews ul li.First a:visited:hover .FirstTitle span {
+    color: #cff0ff;
+    text-decoration: none}
+.BlockNews .ListNews ul li.First a:link:hover .FirstImg span,.BlockNews .ListNews ul li.First a:visited:hover .FirstImg span {
+    text-decoration: none}
+.BlockNews .ListNews ul li.First p.FirstTitle {
+    display: block;
+    clear: both}
+.BlockNews .ListNews ul li.First p.FirstTitle span {
+    float: left;
+    height: 20px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    color: #8badbb;
+    background: url(bg_news_first-v1.jpg)/*tpa=http://phongvanthan.com/images/bg_news_first-v1.jpg*/ no-repeat}
+.BlockNews .ListNews ul li.First p.FirstImg img {
+    float: left;
+    width: 136px;
+    height: 86px;
+    border: 2px solid #7a654b;
+    margin-left: 30px}
+.BlockNews .ListNews ul li.First p.FirstImg span {
+    float: right;
+    width: 240px;
+    height: 86px;
+    margin-right: 10px;
+    padding-left: 10px;
+    padding-top: 0;
+    font-weight: normal;
+    white-space: normal;
+    color: #3572a5}
+a.ViewMore:link,a.ViewMore:visited {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -250px -1726px;
+    width: 22px;
+    height: 22px;
+    display: block;
+    float: right;
+    position: absolute;
+    top: 12px;
+    left: 400px}
+a.ViewMore:hover {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -226px -1726px;
+    width: 22px;
+    height: 22px}
+.FormSearch {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 155px;
+    z-index: 100}
+.FormSearch input {
+    color: #fff;
+    background: #0d1b25 no-repeat;
+    border: 0;
+    float: left;
+    width: 114px;
+    padding-left: 10px;
+    line-height: 24px;
+    height: 23px}
+.FormSearch .BtnSearch {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -236px -1571px;
+    width: 30px;
+    height: 25px;
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    float: left;
+    border: 0}
+.FormSearch .BtnSearch:hover {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -236px -1544px;
+    width: 30px;
+    height: 25px}
+ul.BlockChar {
+    width: 670px;
+    height: 260px;
+    display: block;
+    clear: both}
+ul.BlockChar li {
+    width: 80px;
+    height: 260px;
+    border-right: #fffff8 1px solid;
+    float: left;
+    cursor: pointer}
+ul.BlockChar li a {
+    width: 100%;
+    height: 260px;
+    display: none;
+    text-indent: -999px}
+ul.BlockChar li.Active {
+    display: block}
+ul.BlockChar li.chien-si {
+    background: url(chien-si-small.jpg)/*tpa=http://phongvanthan.com/images/chien-si-small.jpg*/ no-repeat}
+ul.BlockChar li.chien-si a:link,ul.BlockChar li.chien-si a:visited {
+    background: url(chien-si-big.jpg)/*tpa=http://phongvanthan.com/images/chien-si-big.jpg*/ no-repeat}
+ul.BlockChar li.chien-si a:hover {
+    background: url(chien-si-big-hover.html)/*tpa=http://phongvanthan.com/images/chien-si-big-hover.jpg*/ no-repeat}
+ul.BlockChar li.thich-khach {
+    background: url(thich-khach-small.jpg)/*tpa=http://phongvanthan.com/images/thich-khach-small.jpg*/ no-repeat}
+ul.BlockChar li.thich-khach a:link,ul.BlockChar li.thich-khach a:visited {
+    background: url(thich-khach-big.jpg)/*tpa=http://phongvanthan.com/images/thich-khach-big.jpg*/ no-repeat}
+ul.BlockChar li.thich-khach a:hover {
+    background: url(thich-khach-big-hover.html)/*tpa=http://phongvanthan.com/images/thich-khach-big-hover.jpg*/ no-repeat}
+ul.BlockChar li.phap-su {
+    background: url(phap-su-small.jpg)/*tpa=http://phongvanthan.com/images/phap-su-small.jpg*/ no-repeat}
+ul.BlockChar li.phap-su a:link,ul.BlockChar li.phap-su a:visited {
+    background: url(phap-su-big.jpg)/*tpa=http://phongvanthan.com/images/phap-su-big.jpg*/ no-repeat}
+ul.BlockChar li.phap-su a:hover {
+    background: url(phap-su-big-hover.html)/*tpa=http://phongvanthan.com/images/phap-su-big-hover.jpg*/ no-repeat}
+.CharContainer {
+    width: 670px;
+    height: 360px;
+    display: block;
+    position: relative;
+    clear: both}
+.CharContainer #carouselChar img {
+    opacity: 0!important}
+.CharContainer #carouselChar .NewCenter img {
+    opacity: 1!important}
+.CharContainer #carouselChar .CharChienSi {
+    display: block;
+    background: url("chien-si-small.jpg")/*tpa=http://phongvanthan.com/images/chien-si-small.jpg*/ 0 0 no-repeat}
+.CharContainer #carouselChar .CharPhapSu {
+    display: block;
+    background: url("phap-su-small.jpg")/*tpa=http://phongvanthan.com/images/phap-su-small.jpg*/ 0 0 no-repeat}
+.CharContainer #carouselChar .CharThichKhach {
+    display: block;
+    background: url("thich-khach-small.jpg")/*tpa=http://phongvanthan.com/images/thich-khach-small.jpg*/ 0 0 no-repeat}
+.CharContainer .tracker-individual-container,.CharContainer .tracker-summation-container {
+    display: none!important}
+.CharContainer #carousel-left,.CharContainer #carousel-right {
+    position: absolute;
+    display: block;
+    width: 25px;
+    height: 47px;
+    top: 135px;
+    left: 115px;
+    z-index: 100;
+    cursor: pointer}
+.CharContainer #carousel-left {
+    background: transparent url(arrow-left-hov.png)/*tpa=http://phongvanthan.com/images/arrow-left-hov.png*/ 0 0 no-repeat}
+.CharContainer #carousel-left:hover img {
+    display: none}
+.CharContainer #carousel-right {
+    left: 520px;
+    background: transparent url(arrow-right-hov.png)/*tpa=http://phongvanthan.com/images/arrow-right-hov.png*/ 0 0 no-repeat}
+.CharContainer #carousel-right:hover img {
+    display: none}
+#BannerEvent {
+    width: 670px;
+    height: 200px}
+#BannerEvent .carousel-navigation ul {
+    position: absolute;
+    height: 20px;
+    z-index: 10;
+    top: 170px;
+    right: 0}
+#BannerEvent .carousel-navigation ul li {
+    width: 14px;
+    height: 20px;
+    display: block;
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -246px -1516px;
+    width: 22px;
+    height: 22px;
+    color: #eceeed;
+    padding: 0 0 0 6px;
+    text-decoration: none;
+    line-height: 18px;
+    float: left;
+    cursor: pointer;
+    text-indent: 0}
+#BannerEvent .carousel-navigation ul li.active,#BannerEvent .carousel-navigation ul li:hover {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -246px -1492px;
+    width: 22px;
+    height: 22px;
+    text-indent: 0;
+    color: #000}
+ul.ListEvent {
+    overflow: hidden;
+    background: #0d1b25;
+    height: 324px;
+    width: 430px;
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    color: #3572a5}
+ul.ListEvent li {
+    width: 100%;
+    float: left;
+    padding: 0 0 10px;
+    overflow: hidden;
+    margin-bottom: 5px;
+    border-bottom: #162734 solid 1px}
+ul.ListEvent li a:link,ul.ListEvent li a:visited {
+    float: left;
+    position: relative;
+    cursor: pointer;
+    width: 136px;
+    height: 86px;
+    margin-top: 5px;
+    border: 2px solid #7a654b}
+ul.ListEvent li a:link img,ul.ListEvent li a:visited img {
+    display: block;
+    width: 136px;
+    height: 86px}
+ul.ListEvent li a:hover {
+    border: 2px solid #c5ac8d}
+ul.ListEvent li .EventContent {
+    width: 260px;
+    padding: 0;
+    float: right;
+    margin-left: 10px;
+    overflow: hidden}
+ul.ListEvent li .EventContent h3 {
+    font-size: 15px;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    float: left;
+    width: 100%}
+ul.ListEvent li .EventContent h3 a:link,ul.ListEvent li .EventContent h3 a:visited {
+    color: #cff0ff;
+    text-decoration: none;
+    border: 0;
+    width: 100%;
+    height: auto;
+    margin-top: 0}
+ul.ListEvent li .EventContent .Date {
+    color: #8badbb;
+    float: left;
+    font-size: 15px;
+    padding: 0;
+    text-align: left;
+    width: 200px}
+ul.ListEvent li .EventContent .ShortContent {
+    clear: both;
+    width: 88%;
+    font-size: 15px;
+    color: #5c8fba}
+ul.ListEvent li: last-child {
+    border-bottom: 0}
+.main-navigation {
+    width: 690px;
+    height: 60px;
+    position: absolute;
+    z-index: 90;
+    left: 50%;
+    line-height: 19px;
+    margin-left: -215px}
+.main-navigation li {
+    float: left;
+    list-style-type: none;
+    position: relative}
+.main-navigation li a.TrangChu {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -208px -2698px;
+    width: 58px;
+    height: 60px}
+.main-navigation li a.TrangChu:hover,.main-navigation li.active a.TrangChu,.main-navigation li.Active a.TrangChu {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -217px -2636px;
+    width: 58px;
+    height: 60px}
+.main-navigation li a.TinTuc {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -94px -2946px;
+    width: 90px;
+    height: 60px}
+.main-navigation li a.TinTuc:hover,.main-navigation li.active a.TinTuc,.main-navigation li.Active a.TinTuc {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -2936px;
+    width: 90px;
+    height: 60px}
+.main-navigation li a.SuKien {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -99px -2884px;
+    width: 95px;
+    height: 60px}
+.main-navigation li a.SuKien:hover,.main-navigation li.active a.SuKien,.main-navigation li.Active a.SuKien {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -2874px;
+    width: 95px;
+    height: 60px}
+.main-navigation li a.ThuVien {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -105px -2698px;
+    width: 101px;
+    height: 60px}
+.main-navigation li a.ThuVien:hover {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -2688px;
+    width: 101px;
+    height: 60px}
+.main-navigation li a.CamNang {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -1430px;
+    width: 124px;
+    height: 60px}
+.main-navigation li a.CamNang:hover,.main-navigation li.active a.CamNang,.main-navigation li.Active a.CamNang {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -130px -1368px;
+    width: 124px;
+    height: 60px}
+.main-navigation li a.CongDong {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -130px -1306px;
+    width: 126px;
+    height: 60px}
+.main-navigation li a.CongDong:hover,.main-navigation li.active a.CongDong,.main-navigation li.Active a.CongDong {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -1306px;
+    width: 126px;
+    height: 60px}
+.main-navigation li a.HoTro {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -2px -2812px;
+    width: 96px;
+    height: 60px}
+.main-navigation li a.HoTro:hover,.main-navigation li.active a.HoTro,.main-navigation li.Active a.HoTro {
+    display: inline-block;
+    background: url('sprite-v2.png')/*tpa=http://phongvanthan.com/images/sprite-v2.png*/ no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-position: -105px -2760px;
+    width: 96px;
+    height: 60px}
+.main-navigation li ul {
+    display: none}
+.main-navigation li.Active ul,.main-navigation li:hover ul {
+    display: block;
+    width: 180px;
+    position: absolute;
+    top: 52px;
+    padding-bottom: 10px;
+    padding-top: 10px}
+.main-navigation li.Active ul li,.main-navigation li:hover ul li {
+    float: left;
+    text-indent: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    line-height: 31px;
+    background: url(sub-menu-center.html)/*tpa=http://phongvanthan.com/images/sub-menu-center.png*/ bottom center no-repeat}
+.main-navigation li.Active ul li a,.main-navigation li:hover ul li a {
+    width: 140px;
+    color: #000;
+    text-indent: 0;
+    padding-left: 10px;
+    height: auto;
+    background-position: 0 0!important}
+.main-navigation li.Active ul li a:hover,.main-navigation li:hover ul li a:hover {
+    color: #037bbd;
+    text-decoration: none}
+.main-navigation li.Active ul li:first-child,.main-navigation li:hover ul li:first-child {
+    background: url(sub-menu-top.html)/*tpa=http://phongvanthan.com/images/sub-menu-top.png*/ no-repeat;
+    height: 30px!important;
+    padding-top: 10px}
+.main-navigation li.Active ul li: last-child,.main-navigation li:hover ul li: last-child {
+    background: url(sub-menu-bottom.html)/*tpa=http://phongvanthan.com/images/sub-menu-bottom.png*/ no-repeat;
+    height: 41px!important}
+.main-navigation li.Active ul li.Active a,.main-navigation li:hover ul li.Active a {
+    color: #407998!important;
+    font-weight: bold}
+.main-navigation li.Active ul {
+    display: none}
+.main-navigation li:hover ul {
+    display: block}
+div.Theme_GP_Wrapper {
+    width: 260px;
+    height: 30px;
+    float: left;
+    background: url(select-server.html)/*tpa=http://phongvanthan.com/images/select-server.jpg*/ 0 0 no-repeat;
+    margin-bottom: 10px;
+    margin-top: 10px}
+.ListHeroLogout div.Theme_GP_Wrapper {
+    margin-left: 0}
+.RankingType2 {
+    width: 196px;
+    background: url(select-caothu.html)/*tpa=http://phongvanthan.com/images/select-caothu.jpg*/ 0 0 no-repeat!important}
+div.Theme_GP_List {
+    margin: 0;
+    padding: 0;
+    width: 220px}
+div.Theme_GP_Wrapper p {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: normal;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    padding: 4px 31px 4px 15px;
+    width: 204px;
+    color: #fff}
+div.Theme_GP_List ul.Theme_GP {
+    width: 250px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden}
+div.Theme_GP_List ul.Theme_GP li {
+    width: 250px;
+    height: 30px;
+    float: left;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    font-size: 12px}
+div.Theme_GP_List ul.SelectUI {
+    background: #0c213a;
+    width: 250px;
+    border-bottom: 1px solid #4098c7}
+div.Theme_GP_List ul.SelectUI li {
+    width: 250px;
+    border-right: 1px solid #4098c7;
+    border-left: 1px solid #4098c7}
+div.Theme_GP_List ul.SelectUI1 {
+    background: #192133;
+    width: 190px;
+    border-bottom: 1px solid #2f3c5e}
+div.Theme_GP_List ul.SelectUI1 li {
+    width: 190px;
+    border-right: 1px solid #2f3c5e;
+    border-left: 1px solid #2f3c5e}
+div.Theme_GP_List ul.Theme_GP li span {
+    font-size: 12px;
+    font-weight: bolder;
+    font-style: italic;
+    display: block;
+    cursor: default;
+    padding: 3px 0 3px 4px}
+div.Theme_GP_List ul.Theme_GP li a:link,div.Theme_GP_List ul.Theme_GP li a:visited {
+    display: block;
+    width: 240px;
+    height: 30px;
+    line-height: 29px;
+    font-size: 12px;
+    padding: 0 0 0 10px;
+    overflow: hidden;
+    text-decoration: none;
+    background: #001120;
+    color: #fff}
+div.Theme_GP_List ul.SelectUI li a:link,div.Theme_GP_List ul.SelectUI li a:visited {
+    color: #fff;
+    background: #30373f}
+div.Theme_GP_List ul.SelectUI1 li a:link,div.Theme_GP_List ul.SelectUI1 li a:visited {
+    background: #3f4348;
+    width: 192px}
+div.Theme_GP_List ul.Theme_GP li.Active a:link,div.Theme_GP_List ul.Theme_GP li.Active a:visited {
+    color: #6d1e15}
+div.Theme_GP_List ul.SelectUI li.Active a:link,div.Theme_GP_List ul.SelectUI li.Active a:visited {
+    color: #05d680}
+div.Theme_GP_List ul.SelectUI1 li.Active a:link,div.Theme_GP_List ul.SelectUI1 li.Active a:visited {
+    color: #ffc000}
+div.Theme_GP_List ul.Theme_GP li.Hover a:link,div.Theme_GP_List ul.Theme_GP li.Hover a:visited {
+    text-decoration: none;
+    color: #e37819;
+    background: #116283}
+div.Theme_GP_List ul.SelectUI1 li.Hover a:link,div.Theme_GP_List ul.SelectUI1 li.Hover a:visited {
+    text-decoration: none;
+    color: #ffc000;
+    background: #6d1e15}
+div.Theme_GP_Modified_Wrapper {
+    float: left;
+    display: block}
+.jcarousel-wrapper {
+    position: relative;
+    width: 186px;
+    height: 25px}
+.jcarousel-wrapper .photo-credits {
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 0 0 1px rgba(0,0,0,0.85);
+    opacity: .66}
+.jcarousel-wrapper .photo-credits a {
+    color: #fff}
+.jcarousel {
+    position: relative;
+    overflow: hidden}
+.jcarousel ul {
+    width: 20000em;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0}
+.jcarousel li {
+    float: left}
+.jcarousel-control-prev,.jcarousel-control-next {
+    position: absolute;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background: #4e443c;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 0 1px #000;
+    font: 24px/27px Arial,sans-serif}
+.jcarousel-control-prev {
+    left: -50px}
+.jcarousel-control-next {
+    right: -50px}
+.jcarousel-control-prev:hover span,.jcarousel-control-next:hover span {
+    display: block}
+.jcarousel-control-prev.inactive,.jcarousel-control-next.inactive {
+    opacity: .5;
+    cursor: default}
+.jcarousel-pagination {
+    position: absolute;
+    bottom: 0;
+    left: 15px}
+.jcarousel-pagination a {
+    text-decoration: none;
+    display: inline-block;
+    font-size: 11px;
+    line-height: 14px;
+    min-width: 14px;
+    background: #fff;
+    color: #4e443c;
+    border-radius: 14px;
+    padding: 3px;
+    text-align: center;
+    margin-right: 2px;
+    opacity: .75}
+.jcarousel-pagination a.active {
+    background: #4e443c;
+    color: #fff;
+    opacity: 1;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.75)}
+.connected-carousels {
+    margin-bottom: 10px}
+.connected-carousels .stage {
+    width: 620px;
+    position: relative}
+.connected-carousels .photo-credits {
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 0 0 1px rgba(0,0,0,0.85);
+    opacity: .66}
+.connected-carousels .photo-credits a {
+    color: #fff}
+.connected-carousels .navigation {
+    width: 200px;
+    position: absolute;
+    top: 160px;
+    right: 40px}
+.connected-carousels .carousel {
+    overflow: hidden;
+    position: relative}
+.connected-carousels .carousel ul {
+    width: 20000em;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0}
+.connected-carousels .carousel li {
+    float: left}
+.connected-carousels .carousel-stage {
+    width: 670px;
+    height: 196px}
+.connected-carousels .carousel-navigation {
+    height: 22px;
+    width: 200px}
+.connected-carousels .carousel-navigation li {
+    cursor: pointer}
+.connected-carousels .carousel-navigation li img {
+    display: block;
+    border: 5px solid #fff}
+.connected-carousels .carousel-navigation li.active img {
+    border-color: #ccc}
+.connected-carousels .prev-stage,.connected-carousels .next-stage {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 305px;
+    height: 410px;
+    color: #fff}
+.connected-carousels .prev-stage {
+    left: 0}
+.connected-carousels .next-stage {
+    right: 0}
+.connected-carousels .prev-stage.inactive,.connected-carousels .next-stage.inactive {
+    display: none}
+.connected-carousels .prev-stage span,.connected-carousels .next-stage span {
+    display: none;
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background: #4e443c;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 0 1px #000;
+    font: 24px/27px Arial,sans-serif;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    -webkit-box-shadow: 0 0 2px #999;
+    -moz-box-shadow: 0 0 2px #999;
+    box-shadow: 0 0 2px #999}
+.connected-carousels .prev-stage span {
+    left: 20px}
+.connected-carousels .next-stage span {
+    right: 20px}
+.connected-carousels .prev-stage:hover span,.connected-carousels .next-stage:hover span {
+    display: block}
+.connected-carousels .prev-navigation,.connected-carousels .next-navigation {
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #4e443c;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 0 1px #000;
+    font: 16px/29px Arial,sans-serif;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    -webkit-box-shadow: 0 0 2px #999;
+    -moz-box-shadow: 0 0 2px #999;
+    box-shadow: 0 0 2px #999}
+.connected-carousels .prev-navigation {
+    left: -15px;
+    top: 22px;
+    text-indent: 6px}
+.connected-carousels .next-navigation {
+    right: -15px;
+    top: 22px;
+    text-indent: 20px}
+.connected-carousels .prev-navigation.inactive,.connected-carousels .next-navigation.inactive {
+    opacity: .5;
+    cursor: default}
+ul.Wallpaper {
+    display: block;
+    overflow: hidden}
+ul.Wallpaper li {
+    float: left;
+    width: 285px;
+    height: 225px;
+    margin-bottom: 30px;
+    position: relative}
+ul.Wallpaper li:nth-child(odd) {
+    margin-right: 30px}
+ul.Wallpaper li a {
+    display: block;
+    width: 100%;
+    height: 100%}
+ul.Wallpaper li a .video-play {
+    position: absolute;
+    width: 120px;
+    height: 105px;
+    background: url(video-play.html)/*tpa=http://phongvanthan.com/images/video-play.png*/ no-repeat;
+    z-index: 5;
+    display: block;
+    top: 75px;
+    left: 115px;
+    overflow: hidden}
+ul.Wallpaper li a img {
+    width: 100%;
+    height: 100%}
+ul.Wallpaper li p {
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    color: #FFF;
+    width: 100%;
+    position: absolute;
+    top: 195px;
+    background: #000;
+    height: 30px;
+    z-index: 66}
+ul.Wallpaper li p .text-wall {
+    float: left;
+    padding-top: 4px;
+    padding-left: 5px}
+ul.Wallpaper li p a.download-wall {
+    font-size: 14px;
+    float: right;
+    text-indent: -999px;
+    width: 34px;
+    height: 33px;
+    background: url(icon-download.html)/*tpa=http://phongvanthan.com/images/icon-download.jpg*/ no-repeat}
+ul.ListNoiDungThuVien {
+    overflow: hidden;
+    padding: 13px 0 12px 7px;
+    display: none}
+ul.ListNoiDungThuVien.Active {
+    display: block}
+ul.ListNoiDungThuVien li {
+    float: left;
+    margin-right: 4px;
+    width: 161px;
+    height: 95px;
+    display: block;
+    position: relative}
+ul.ListNoiDungThuVien li a {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%}
+ul.ListNoiDungThuVien li a:hover span {
+    width: 211px;
+    height: 190px;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background: url(gray1.html)/*tpa=http://phongvanthan.com/images/gray1.png*/;
+    -webkit-transition: all .1s;
+    -moz-transition: all .1s;
+    transition: all .1s;
+    -ms-transform: scale(1.05,1.05);
+    -webkit-transform: scale(1.05,1.05);
+    transform: scale(1.05,1.05)}
+ul.ListNoiDungThuVien li a:hover span.Film {
+    background: url(hover-thuvien.html)/*tpa=http://phongvanthan.com/images/hover-thuvien.png*/ no-repeat center;
+    -webkit-transition: all 0;
+    -moz-transition: all 0;
+    transition: all 0}
+ul.ListNoiDungThuVien li a img {
+    position: absolute;
+    -webkit-transition: all .1s;
+    -moz-transition: all .1s;
+    transition: all .1s;
+    border: 1px #0c0c0d solid}
+ul.ListNoiDungThuVien li a:hover img {
+    -ms-transform: scale(1.05,1.05);
+    -webkit-transform: scale(1.05,1.05);
+    transform: scale(1.05,1.05)}
+.BoxThuVien {
+    background: url(bg-gallery.jpg)/*tpa=http://phongvanthan.com/images/bg-gallery.jpg*/ no-repeat 0 0;
+    position: relative;
+    width: 100%;
+    display: block;
+    height: 160px}
+.BoxThuVien .ViewMoreGallery {
+    background: url(gallery-more.jpg)/*tpa=http://phongvanthan.com/images/gallery-more.jpg*/ no-repeat 0 0;
+    position: absolute;
+    top: 8px;
+    right: 35px;
+    display: block;
+    width: 22px;
+    height: 22px;
+    text-indent: -9999px}
+.BoxThuVien .ViewMoreGallery:hover {
+    background-position: 0 -22px}
+.TabMenu {
+    list-style: none;
+    position: relative;
+    height: 40px;
+    width: 100%;
+    float: left;
+    margin-left: 5px}
+.TabMenu li {
+    display: block;
+    float: left}
+.TabMenu li: last-child a {
+    background: 0}
+.TabMenu li a {
+    position: relative;
+    z-index: 101;
+    display: block;
+    float: left;
+    font-weight: bold;
+    color: #99d1ea;
+    margin: 5px 0 0 0;
+    padding: 5px 10px 10px 10px;
+    white-space: nowrap}
+.TabMenu li.Active a,.TabMenu li a:hover {
+    color: #d7eff9;
+    text-decoration: none;
+    background: #0d1b25}
+.TabMenu li a.HotNews {
+    color: #F00;
+    font-weight: bold;
+    text-transform: uppercase}
+.TabMenu li a.HotNews:hover {
+    color: #fff}
+.carousel-container {
+    position: relative;
+    width: 660px}
+#carouselChar {
+    height: 310px;
+    width: 660px;
+    background-color: none;
+    position: relative;
+    margin-bottom: .5em;
+    font-size: 12px;
+    font-family: Arial}
+.carousel-image {
+    border: 0;
+    display: block}
+.carousel-feature {
+    position: absolute;
+    top: -1000px;
+    left: -1000px;
+    cursor: pointer}
+.carousel-feature .carousel-caption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #000}
+.carousel-feature .carousel-caption p {
+    margin: 0;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 12px;
+    color: white}
+.tracker-summation-container {
+    position: absolute;
+    color: white;
+    right: 48px;
+    top: 230px;
+    padding: 3px;
+    margin: 3px;
+    background-color: #000}
+.tracker-individual-container {
+    position: absolute;
+    color: white;
+    right: 48px;
+    top: 210px;
+    padding: 0;
+    margin: 0}
+.tracker-individual-container li {
+    list-style: none}
+.tracker-individual-container .tracker-individual-blip {
+    margin: 0 3px;
+    padding: 0 3px;
+    color: white;
+    text-align: center;
+    background-color: #DDD}
+.tracker-individual-container .tracker-individual-blip-selected {
+    color: white;
+    font-weight: bold;
+    background-color: #000}
+#carouselChar-left {
+    position: absolute;
+    bottom: 33px;
+    left: 220px;
+    cursor: pointer}
+#carouselChar-right {
+    position: absolute;
+    bottom: 33px;
+    right: 220px;
+    cursor: pointer}
+
+#table-bxh {
+  margin-top: 39px;
+  margin-left: 5px;
+  color: #A7EAFD;
+  border: #258FAD;
+}
+

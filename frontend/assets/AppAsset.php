@@ -21,8 +21,11 @@ class AppAsset extends AssetBundle {
     public $css = [
         'css/style.css',
         'css/login.css',
+        'css/jcarousel.basic.css',
     ];
     public $js = [
+        'js/jquery.jcarousel.min.js',
+        'js/jcarousel.basic.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
