@@ -15,6 +15,7 @@ return array(
         'thay-doi-mat-khau.html' => 'user/changepass',
         'thong-tin-tai-khoan.html' => 'user/index',
         'dang-xuat.html' => 'auth/logout',
+        'nap-the.html' => 'user/addcard',
     ]
 );
 ?>

@@ -52,7 +52,7 @@ class AuthController extends BaseController {
 
             if ($data->save()) {
                 Yii::$app->session->setFlash('success', 'Tạo tài khoản thành công');
-                return $this->redirect('login');
+                return $this->redirect('dang-nhap.html');
             } else {
                 $error = '';
                 foreach ($data->errors as $val) {

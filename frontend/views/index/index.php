@@ -15,7 +15,7 @@ use yii\widgets\LinkPager;
         </div>
         <div class="DangkyNapthe">
             <a href="<?= Url::base('http') . '/dang-ky.html' ?>" target="_blank" id="zme-registerwg22" class="Register QuickRegister" title="Đăng ký nhanh" rel="nofowllow"> Đăng ký</a>
-            <a href="<?= Url::base('http') . '/dang-nhap.html' ?>" tppabs="" target="_blank" class="Pay NapThe" title="Đăng nhập" rel="nofowllow"> Đăng nhập</a>
+            <a href="<?= Url::base('http') . '/nap-the.html' ?>" tppabs="" target="_blank" class="Pay NapThe" title="Nạp thẻ" rel="nofowllow"> Nạp thẻ</a>
         </div>
         <div class="ServerList"><span class="loading"></span>
             <div class="bxh" style="position: relative">

@@ -15,6 +15,7 @@ class IndexController extends BaseController {
                 ->limit($pages->limit)
                 ->all();
         $user_exp = TUser::find()->select('name,level')->orderBy('totalexp DESC')->limit(9)->all();
+
         return $this->render('index', [
                     'models' => $models,
                     'pages' => $pages,
