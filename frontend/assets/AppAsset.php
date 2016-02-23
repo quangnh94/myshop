@@ -25,7 +25,8 @@ class AppAsset extends AssetBundle {
     ];
     public $js = [
         'js/jquery.jcarousel.min.js',
-        'js/jcarousel.basic.js'
+        'js/jcarousel.basic.js',
+        'js/bootstrap.min.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

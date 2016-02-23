@@ -34,6 +34,7 @@ AppAsset::register($this);
                 </ul>
                 <div style="clear:both"></div>
             </div>
+            <div style="clear: both"></div>
             <div id="header" style="width: 950px;">
                 <a id="logo" href="<?= Url::base('http') ?>/trang-chu.html"><img src="<?= Url::base('http') ?>/images/logo_real.png" alt=""></a>
             </div>

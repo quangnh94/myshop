@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.14
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2016 at 05:56 AM
--- Server version: 5.6.26
--- PHP Version: 5.6.12
+-- Generation Time: Feb 22, 2016 at 04:10 PM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `db_game`
@@ -32,7 +32,8 @@ CREATE TABLE IF NOT EXISTS `administrator` (
   `created_at` int(11) NOT NULL,
   `updated_at` int(11) NOT NULL,
   `authKey` varchar(250) NOT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '0'
+  `status` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -52,7 +53,8 @@ INSERT INTO `administrator` (`id`, `password`, `created_at`, `updated_at`, `auth
 CREATE TABLE IF NOT EXISTS `auth_assignment` (
   `item_name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `user_id` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` int(11) DEFAULT NULL
+  `created_at` int(11) DEFAULT NULL,
+  PRIMARY KEY (`item_name`,`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -84,14 +86,15 @@ INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `auth_group` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `group_name` varchar(250) NOT NULL,
   `created_at` int(11) NOT NULL,
   `updated_at` int(11) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '0',
   `description` varchar(250) NOT NULL,
-  `alias` varchar(250) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  `alias` varchar(250) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `auth_group`
@@ -117,7 +120,10 @@ CREATE TABLE IF NOT EXISTS `auth_item` (
   `created_at` int(11) DEFAULT NULL,
   `updated_at` int(11) DEFAULT NULL,
   `group_id` int(11) NOT NULL,
-  `alias` varchar(250) COLLATE utf8_unicode_ci NOT NULL
+  `alias` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`name`),
+  KEY `rule_name` (`rule_name`),
+  KEY `idx-auth_item-type` (`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -156,7 +162,9 @@ INSERT INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `data`, `cr
 
 CREATE TABLE IF NOT EXISTS `auth_item_child` (
   `parent` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
-  `child` varchar(64) COLLATE utf8_unicode_ci NOT NULL
+  `child` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`parent`,`child`),
+  KEY `child` (`child`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -191,7 +199,8 @@ CREATE TABLE IF NOT EXISTS `auth_rule` (
   `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `data` text COLLATE utf8_unicode_ci,
   `created_at` int(11) DEFAULT NULL,
-  `updated_at` int(11) DEFAULT NULL
+  `updated_at` int(11) DEFAULT NULL,
+  PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -201,7 +210,7 @@ CREATE TABLE IF NOT EXISTS `auth_rule` (
 --
 
 CREATE TABLE IF NOT EXISTS `news` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(250) NOT NULL,
   `description` varchar(500) NOT NULL,
   `content` text NOT NULL,
@@ -210,8 +219,9 @@ CREATE TABLE IF NOT EXISTS `news` (
   `alias` varchar(250) NOT NULL,
   `status` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
-  `images` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `images` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `news`
@@ -227,14 +237,15 @@ INSERT INTO `news` (`id`, `title`, `description`, `content`, `created_at`, `upda
 --
 
 CREATE TABLE IF NOT EXISTS `news_categories` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `category_name` varchar(250) NOT NULL,
   `alias` varchar(250) NOT NULL,
   `parent_id` int(11) NOT NULL,
   `created_at` int(11) NOT NULL,
   `updated_at` int(4) NOT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  `status` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `news_categories`
@@ -256,7 +267,9 @@ CREATE TABLE IF NOT EXISTS `request_teacher_list` (
   `teacherlev` int(11) DEFAULT '0',
   `teacherparty` int(11) DEFAULT '0',
   `studentcount` int(11) DEFAULT '0',
-  `publishtime` int(11) DEFAULT '0'
+  `publishtime` int(11) DEFAULT '0',
+  PRIMARY KEY (`teacherdbid`),
+  KEY `publishtime` (`publishtime`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -266,7 +279,7 @@ CREATE TABLE IF NOT EXISTS `request_teacher_list` (
 --
 
 CREATE TABLE IF NOT EXISTS `t_account` (
-  `accountid` bigint(21) NOT NULL,
+  `accountid` bigint(21) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) DEFAULT NULL,
   `pwd` varchar(32) DEFAULT NULL,
   `pw2` varchar(32) DEFAULT NULL,
@@ -321,15 +334,18 @@ CREATE TABLE IF NOT EXISTS `t_account` (
   `pwp1` int(11) DEFAULT '0',
   `pwp2` int(11) DEFAULT '0',
   `pwp3` int(11) DEFAULT '0',
-  `email` text
-) ENGINE=MyISAM AUTO_INCREMENT=198 DEFAULT CHARSET=latin1;
+  `email` text,
+  PRIMARY KEY (`accountid`),
+  UNIQUE KEY `name` (`name`),
+  KEY `ll` (`ll`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=205 ;
 
 --
 -- Dumping data for table `t_account`
 --
 
 INSERT INTO `t_account` (`accountid`, `name`, `pwd`, `pw2`, `sc`, `pp`, `city`, `bd`, `pv`, `pt`, `el`, `ac`, `ai`, `lr`, `ld`, `ls`, `le`, `ll`, `ct`, `cn`, `ot`, `vt`, `vl`, `p1`, `p2`, `lg`, `lt`, `ck`, `gd`, `st`, `cc`, `ut`, `cr`, `dc`, `di`, `ic`, `do`, `oc`, `gn`, `bc`, `cy`, `cs`, `cm`, `mc`, `uc`, `svc`, `svcc`, `svd`, `svdc`, `svb`, `svbc`, `pwt`, `pwp1`, `pwp2`, `pwp3`, `email`) VALUES
-(2, 'hope90', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'c8837b23ff8aaa8a2dde915473ce0991', NULL, NULL, 0, 9, 0, 0, NULL, NULL, NULL, 0, 0, 0, 1455676638, 0, 0, 68145, 0, 0, 0, 0, 0, 0, 63178, 916994, 0, 0, 83008, 16988, 63964, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '1233211'),
+(2, 'hope90', 'fcea920f7412b5da7be0cf42b8c93759', NULL, 'c8837b23ff8aaa8a2dde915473ce0991', NULL, NULL, 0, 9, 0, 0, NULL, NULL, NULL, 0, 0, 0, 1455676638, 0, 0, 68145, 0, 0, 0, 0, 0, 0, 63178, 916994, 0, 0, 83008, 16988, 63964, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '1233211'),
 (3, 'anhhaubd', 'fc8bf73fc913878ff417dfb3300a7ba1', NULL, 'c4ca4238a0b923820dcc509a6f75849b', NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 1454407803, 0, 0, 9411, 0, 0, 0, 0, 0, 0, 3177, 960, 0, 0, 39, 32100, 10715, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'chodienkst@gmail.com'),
 (4, 'kadjck', '4297f44b13955235245b2497399d7a93', NULL, '3569684e1c6e192215bd04738308c63e', NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 1454350475, 0, 0, 656, 0, 0, 0, 0, 0, 0, 37250, 889, 0, 0, 110, 10689, 64631, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'andaica1311@gmail.com'),
 (5, 'hoangthanhdk', '00b7691d86d96aebd21dd9e138f90840', NULL, '96e79218965eb72c92a549dd5a330112', NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 39990, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'hoangthanhdk.2212@gmail.com'),
@@ -524,7 +540,14 @@ INSERT INTO `t_account` (`accountid`, `name`, `pwd`, `pw2`, `sc`, `pp`, `city`, 
 (194, '9', '45c48cce2e2d7fbdea1afc51c7c6ad26', NULL, '45c48cce2e2d7fbdea1afc51c7c6ad26', NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 999, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '9'),
 (195, '10', 'c4ca4238a0b923820dcc509a6f75849b', NULL, 'c4ca4238a0b923820dcc509a6f75849b', NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 999, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '1'),
 (196, 'truonghb', 'f4fea5e6ed8bda3f04233bf8a512a76d', NULL, '3b712de48137572f3849aabd5666a4e3', NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 1455690516, 0, 0, 11856, 0, 0, 0, 0, 0, 0, 51607, 82779, 0, 0, 5142, 25410, 36045, 0, 0, 0, 0, 0, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'truongtitvnn68@gmail.com'),
-(197, 'pro9xnet8', 'e10adc3949ba59abbe56e057f20f883e', NULL, '96e79218965eb72c92a549dd5a330112', NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 1455686922, 0, 0, 544, 0, 0, 0, 0, 0, 0, 33649, 86, 0, 0, 913, 11252, 54177, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pro9x_net2@yahoo.com');
+(197, 'pro9xnet8', 'e10adc3949ba59abbe56e057f20f883e', NULL, '96e79218965eb72c92a549dd5a330112', NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 1455686922, 0, 0, 544, 0, 0, 0, 0, 0, 0, 33649, 86, 0, 0, 913, 11252, 54177, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pro9x_net2@yahoo.com'),
+(198, 'quangnh94', 'e10adc3949ba59abbe56e057f20f883e', 'fcea920f7412b5da7be0cf42b8c93759', '25f9e794323b453885f5181f1b624d0b', NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 999, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quang.nh94@gmail.com'),
+(199, 'quangnh95', 'e10adc3949ba59abbe56e057f20f883e', 'fcea920f7412b5da7be0cf42b8c93759', '25f9e794323b453885f5181f1b624d0b', NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 999, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quang.nh95@gmail.com'),
+(200, 'quangnh96', 'e10adc3949ba59abbe56e057f20f883e', 'fcea920f7412b5da7be0cf42b8c93759', 'fcea920f7412b5da7be0cf42b8c93759', NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 999, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quang.nh96@gmail.com'),
+(201, 'lol14', 'e10adc3949ba59abbe56e057f20f883e', 'fcea920f7412b5da7be0cf42b8c93759', 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 999, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quang.nh97@gmail.com'),
+(202, 'helloworld', 'd41d8cd98f00b204e9800998ecf8427e', 'd41d8cd98f00b204e9800998ecf8427e', 'd41d8cd98f00b204e9800998ecf8427e', NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 999, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(203, 'hope98', 'e10adc3949ba59abbe56e057f20f883e', 'fcea920f7412b5da7be0cf42b8c93759', 'e473854b66cae55cf70d2d9f453e9d5d', NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 999, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'dfdsffasfsfdf@gmail.com'),
+(204, 'hope97', 'e10adc3949ba59abbe56e057f20f883e', 'fcea920f7412b5da7be0cf42b8c93759', 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 999, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quang.nh91@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -533,7 +556,7 @@ INSERT INTO `t_account` (`accountid`, `name`, `pwd`, `pw2`, `sc`, `pp`, `city`, 
 --
 
 CREATE TABLE IF NOT EXISTS `t_auction_item` (
-  `auctionitemid` bigint(21) NOT NULL,
+  `auctionitemid` bigint(21) NOT NULL AUTO_INCREMENT,
   `ownerid` bigint(21) DEFAULT '0',
   `owneraccountid` bigint(21) DEFAULT '0',
   `buyerid` bigint(21) DEFAULT '0',
@@ -547,8 +570,9 @@ CREATE TABLE IF NOT EXISTS `t_auction_item` (
   `duration` int(11) DEFAULT '0',
   `instance` blob,
   `starttime` int(11) DEFAULT '0',
-  `opid` int(11) DEFAULT '0'
-) ENGINE=MyISAM AUTO_INCREMENT=67244672944396 DEFAULT CHARSET=latin1;
+  `opid` int(11) DEFAULT '0',
+  PRIMARY KEY (`auctionitemid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=67244672944396 ;
 
 --
 -- Dumping data for table `t_auction_item`
@@ -566,7 +590,7 @@ INSERT INTO `t_auction_item` (`auctionitemid`, `ownerid`, `owneraccountid`, `buy
 --
 
 CREATE TABLE IF NOT EXISTS `t_card_saving` (
-  `idx` int(11) NOT NULL,
+  `idx` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) DEFAULT NULL,
   `cardid` varchar(45) DEFAULT NULL,
   `cardpwd` varchar(32) DEFAULT NULL,
@@ -575,8 +599,11 @@ CREATE TABLE IF NOT EXISTS `t_card_saving` (
   `type` int(11) DEFAULT '0',
   `got` int(11) DEFAULT '0',
   `num` int(11) DEFAULT '0',
-  `opid` int(11) DEFAULT '0'
-) ENGINE=MyISAM AUTO_INCREMENT=110 DEFAULT CHARSET=latin1;
+  `opid` int(11) DEFAULT '0',
+  PRIMARY KEY (`idx`),
+  KEY `name` (`name`),
+  KEY `stime` (`stime`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=110 ;
 
 --
 -- Dumping data for table `t_card_saving`
@@ -732,7 +759,8 @@ CREATE TABLE IF NOT EXISTS `t_cct` (
   `s27` int(11) DEFAULT '0',
   `s28` int(11) DEFAULT '0',
   `s29` int(11) DEFAULT '0',
-  `s30` int(11) DEFAULT '0'
+  `s30` int(11) DEFAULT '0',
+  KEY `tm` (`tm`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -775,7 +803,9 @@ CREATE TABLE IF NOT EXISTS `t_cct24h` (
   `s27` int(11) DEFAULT '0',
   `s28` int(11) DEFAULT '0',
   `s29` int(11) DEFAULT '0',
-  `s30` int(11) DEFAULT '0'
+  `s30` int(11) DEFAULT '0',
+  PRIMARY KEY (`idx`),
+  KEY `tm` (`tm`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -793,7 +823,8 @@ CREATE TABLE IF NOT EXISTS `t_consign` (
   `money` int(11) DEFAULT '0',
   `credit` int(11) DEFAULT '0',
   `deadline` int(11) DEFAULT '0',
-  `description` varchar(64) DEFAULT NULL
+  `description` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -812,7 +843,10 @@ CREATE TABLE IF NOT EXISTS `t_defend_equip_rank` (
   `ownername` varchar(32) DEFAULT NULL,
   `showpoint` tinyint(4) DEFAULT '0',
   `showownername` tinyint(4) DEFAULT '0',
-  `data` blob
+  `data` blob,
+  PRIMARY KEY (`dbid`),
+  KEY `point` (`point`),
+  KEY `inserttime` (`inserttime`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -837,7 +871,7 @@ INSERT INTO `t_defend_equip_rank` (`dbid`, `ownerdbid`, `itemtypeid`, `level`, `
 --
 
 CREATE TABLE IF NOT EXISTS `t_event` (
-  `idx` int(11) NOT NULL,
+  `idx` int(11) NOT NULL AUTO_INCREMENT,
   `timestart` int(11) DEFAULT '0',
   `timestop` int(11) DEFAULT '0',
   `duration` int(11) DEFAULT '0',
@@ -852,8 +886,9 @@ CREATE TABLE IF NOT EXISTS `t_event` (
   `memo` varchar(250) DEFAULT NULL,
   `createtime` int(11) DEFAULT '0',
   `deletetime` int(11) DEFAULT '0',
-  `deletetype` int(11) DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `deletetype` int(11) DEFAULT '0',
+  PRIMARY KEY (`idx`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -862,7 +897,7 @@ CREATE TABLE IF NOT EXISTS `t_event` (
 --
 
 CREATE TABLE IF NOT EXISTS `t_gift` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `recvid` bigint(21) DEFAULT '0',
   `recvname` varchar(32) DEFAULT NULL,
   `sendername` varchar(32) DEFAULT NULL,
@@ -871,8 +906,11 @@ CREATE TABLE IF NOT EXISTS `t_gift` (
   `gifts` text,
   `deleted` tinyint(4) DEFAULT '0',
   `deltime` int(11) DEFAULT '0',
-  `createtime` int(11) DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `createtime` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `recvid` (`recvid`),
+  KEY `deleted` (`deleted`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -881,14 +919,17 @@ CREATE TABLE IF NOT EXISTS `t_gift` (
 --
 
 CREATE TABLE IF NOT EXISTS `t_gold_saving` (
-  `idx` int(11) NOT NULL,
+  `idx` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) DEFAULT NULL,
   `gold` int(11) DEFAULT '0',
   `type` int(11) DEFAULT '0',
   `opid` int(11) DEFAULT '0',
   `nidx` int(11) DEFAULT '0',
-  `ctime` int(11) DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `ctime` int(11) DEFAULT '0',
+  PRIMARY KEY (`idx`),
+  KEY `name` (`name`),
+  KEY `ctime` (`ctime`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -897,7 +938,7 @@ CREATE TABLE IF NOT EXISTS `t_gold_saving` (
 --
 
 CREATE TABLE IF NOT EXISTS `t_gold_used` (
-  `idx` int(11) NOT NULL,
+  `idx` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) DEFAULT NULL,
   `type` int(11) DEFAULT '0',
   `gold` int(11) DEFAULT '0',
@@ -912,8 +953,12 @@ CREATE TABLE IF NOT EXISTS `t_gold_used` (
   `actorid` bigint(21) DEFAULT '0',
   `actorname` varchar(128) DEFAULT NULL,
   `actorlev` int(11) DEFAULT '0',
-  `ip` int(11) DEFAULT '0'
-) ENGINE=MyISAM AUTO_INCREMENT=6324 DEFAULT CHARSET=latin1;
+  `ip` int(11) DEFAULT '0',
+  PRIMARY KEY (`idx`),
+  KEY `name` (`name`),
+  KEY `utime` (`utime`),
+  KEY `actorid` (`actorid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6324 ;
 
 --
 -- Dumping data for table `t_gold_used`
@@ -7267,7 +7312,9 @@ CREATE TABLE IF NOT EXISTS `t_guild_kill_record` (
   `agname` varchar(32) DEFAULT NULL,
   `killusercnt` int(11) DEFAULT '0',
   `bekilledusercnt` int(11) DEFAULT '0',
-  `data` blob
+  `data` blob,
+  PRIMARY KEY (`id`),
+  KEY `killusercnt` (`killusercnt`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -7283,7 +7330,9 @@ CREATE TABLE IF NOT EXISTS `t_guild_war_pair` (
   `decguildid` bigint(21) DEFAULT '0',
   `decguildname` varchar(32) DEFAULT NULL,
   `decguildlev` int(11) DEFAULT '0',
-  `dectime` int(11) DEFAULT '0'
+  `dectime` int(11) DEFAULT '0',
+  PRIMARY KEY (`guildid`),
+  KEY `dectime` (`dectime`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -7293,7 +7342,7 @@ CREATE TABLE IF NOT EXISTS `t_guild_war_pair` (
 --
 
 CREATE TABLE IF NOT EXISTS `t_login` (
-  `loginindex` bigint(21) NOT NULL,
+  `loginindex` bigint(21) NOT NULL AUTO_INCREMENT,
   `accountid` bigint(21) DEFAULT '0',
   `server` bigint(21) DEFAULT '0',
   `logintime` int(11) DEFAULT '0',
@@ -7301,8 +7350,11 @@ CREATE TABLE IF NOT EXISTS `t_login` (
   `ip` int(11) DEFAULT '0',
   `point` int(11) DEFAULT '0',
   `flag` int(11) DEFAULT '0',
-  `mac` varchar(32) DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=1734 DEFAULT CHARSET=latin1;
+  `mac` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`loginindex`),
+  KEY `accountid` (`accountid`),
+  KEY `logintime` (`logintime`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1734 ;
 
 --
 -- Dumping data for table `t_login`
@@ -9052,7 +9104,7 @@ INSERT INTO `t_login` (`loginindex`, `accountid`, `server`, `logintime`, `logout
 --
 
 CREATE TABLE IF NOT EXISTS `t_log_acct` (
-  `idx` int(11) NOT NULL,
+  `idx` int(11) NOT NULL AUTO_INCREMENT,
   `tm` int(11) DEFAULT '0',
   `logtm` int(11) DEFAULT '0',
   `i00` int(11) DEFAULT '0',
@@ -9099,8 +9151,9 @@ CREATE TABLE IF NOT EXISTS `t_log_acct` (
   `c10` int(11) DEFAULT '0',
   `c11` int(11) DEFAULT '0',
   `c12` int(11) DEFAULT '0',
-  `c13` int(11) DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `c13` int(11) DEFAULT '0',
+  PRIMARY KEY (`idx`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -9109,7 +9162,7 @@ CREATE TABLE IF NOT EXISTS `t_log_acct` (
 --
 
 CREATE TABLE IF NOT EXISTS `t_log_act` (
-  `idx` int(11) NOT NULL,
+  `idx` int(11) NOT NULL AUTO_INCREMENT,
   `tm` int(11) DEFAULT '0',
   `logtm` int(11) DEFAULT '0',
   `level` int(11) DEFAULT '0',
@@ -9132,8 +9185,9 @@ CREATE TABLE IF NOT EXISTS `t_log_act` (
   `lvuptimemin` int(11) DEFAULT '0',
   `lvuptimemax` int(11) DEFAULT '0',
   `lvuptimeavg` int(11) DEFAULT '0',
-  `lvuptimeavg2` int(11) DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `lvuptimeavg2` int(11) DEFAULT '0',
+  PRIMARY KEY (`idx`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -9142,12 +9196,13 @@ CREATE TABLE IF NOT EXISTS `t_log_act` (
 --
 
 CREATE TABLE IF NOT EXISTS `t_log_gitem` (
-  `idx` int(11) NOT NULL,
+  `idx` int(11) NOT NULL AUTO_INCREMENT,
   `tm` int(11) DEFAULT '0',
   `itemid` int(11) DEFAULT '0',
   `price` int(11) DEFAULT '0',
-  `cnt` int(11) DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `cnt` int(11) DEFAULT '0',
+  PRIMARY KEY (`idx`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -9156,11 +9211,12 @@ CREATE TABLE IF NOT EXISTS `t_log_gitem` (
 --
 
 CREATE TABLE IF NOT EXISTS `t_log_log` (
-  `idx` int(11) NOT NULL,
+  `idx` int(11) NOT NULL AUTO_INCREMENT,
   `tm` int(11) DEFAULT '0',
   `type` int(11) DEFAULT '0',
-  `usetime` int(11) DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `usetime` int(11) DEFAULT '0',
+  PRIMARY KEY (`idx`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -9178,7 +9234,10 @@ CREATE TABLE IF NOT EXISTS `t_main_trump_rank` (
   `ownername` varchar(32) DEFAULT NULL,
   `showpoint` tinyint(4) DEFAULT '0',
   `showownername` tinyint(4) DEFAULT '0',
-  `data` blob
+  `data` blob,
+  PRIMARY KEY (`dbid`),
+  KEY `point` (`point`),
+  KEY `inserttime` (`inserttime`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -9222,7 +9281,8 @@ CREATE TABLE IF NOT EXISTS `t_murder` (
   `begintime` int(11) DEFAULT '0',
   `endtime` int(11) DEFAULT '0',
   `rewardmoney` int(11) DEFAULT '0',
-  `rewardpoint` int(11) DEFAULT '0'
+  `rewardpoint` int(11) DEFAULT '0',
+  PRIMARY KEY (`dbid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -9306,7 +9366,7 @@ INSERT INTO `t_murder` (`dbid`, `deleted`, `applyid`, `applyname`, `targetid`, `
 --
 
 CREATE TABLE IF NOT EXISTS `t_new` (
-  `idx` int(11) NOT NULL,
+  `idx` int(11) NOT NULL AUTO_INCREMENT,
   `type` int(11) DEFAULT '0',
   `name` varchar(32) DEFAULT NULL,
   `str1` varchar(64) DEFAULT NULL,
@@ -9315,8 +9375,9 @@ CREATE TABLE IF NOT EXISTS `t_new` (
   `i1` int(11) DEFAULT '0',
   `i2` int(11) DEFAULT '0',
   `i3` int(11) DEFAULT '0',
-  `ctime` int(11) DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `ctime` int(11) DEFAULT '0',
+  PRIMARY KEY (`idx`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -9330,7 +9391,8 @@ CREATE TABLE IF NOT EXISTS `t_pve_rank` (
   `party` int(11) DEFAULT '0',
   `level` int(11) DEFAULT '0',
   `guild` varchar(32) DEFAULT NULL,
-  `point` int(11) DEFAULT '0'
+  `point` int(11) DEFAULT '0',
+  PRIMARY KEY (`rank`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -9340,7 +9402,7 @@ CREATE TABLE IF NOT EXISTS `t_pve_rank` (
 --
 
 CREATE TABLE IF NOT EXISTS `t_schedule` (
-  `idx` int(11) NOT NULL,
+  `idx` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(250) DEFAULT NULL,
   `schedule` varchar(128) DEFAULT NULL,
   `timestart` int(11) DEFAULT '0',
@@ -9351,8 +9413,9 @@ CREATE TABLE IF NOT EXISTS `t_schedule` (
   `recever` varchar(250) DEFAULT NULL,
   `createtime` int(11) DEFAULT '0',
   `deletetime` int(11) DEFAULT '0',
-  `deletetype` int(11) DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `deletetype` int(11) DEFAULT '0',
+  PRIMARY KEY (`idx`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -9361,7 +9424,7 @@ CREATE TABLE IF NOT EXISTS `t_schedule` (
 --
 
 CREATE TABLE IF NOT EXISTS `t_storage_item` (
-  `storageitemid` bigint(21) NOT NULL,
+  `storageitemid` bigint(21) NOT NULL AUTO_INCREMENT,
   `dbid` bigint(21) DEFAULT '0',
   `strdesc` varchar(255) DEFAULT NULL,
   `deleted` tinyint(4) DEFAULT '0',
@@ -9372,8 +9435,9 @@ CREATE TABLE IF NOT EXISTS `t_storage_item` (
   `instance` blob,
   `storagetime` int(11) DEFAULT '0',
   `taketime` int(11) DEFAULT '0',
-  `forcedeltime` int(11) DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `forcedeltime` int(11) DEFAULT '0',
+  PRIMARY KEY (`storageitemid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -9390,7 +9454,9 @@ CREATE TABLE IF NOT EXISTS `t_student` (
   `reportlev` int(11) DEFAULT '0',
   `state` int(11) DEFAULT '0',
   `enterschooltime` int(11) DEFAULT '0',
-  `lastreporttime` int(11) DEFAULT '0'
+  `lastreporttime` int(11) DEFAULT '0',
+  PRIMARY KEY (`studentdbid`),
+  KEY `teacherdbid` (`teacherdbid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -9462,7 +9528,8 @@ CREATE TABLE IF NOT EXISTS `t_teacher` (
   `teachername` varchar(32) DEFAULT NULL,
   `teacherlev` int(11) DEFAULT '0',
   `teacherparty` int(11) DEFAULT '0',
-  `totalreportgrade` int(11) DEFAULT '0'
+  `totalreportgrade` int(11) DEFAULT '0',
+  PRIMARY KEY (`teacherdbid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -9504,9 +9571,10 @@ INSERT INTO `t_teacher` (`teacherdbid`, `teachername`, `teacherlev`, `teacherpar
 --
 
 CREATE TABLE IF NOT EXISTS `t_ui` (
-  `idx` int(11) NOT NULL,
-  `txt` text
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `idx` int(11) NOT NULL AUTO_INCREMENT,
+  `txt` text,
+  PRIMARY KEY (`idx`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -9556,7 +9624,16 @@ CREATE TABLE IF NOT EXISTS `t_user` (
   `data` blob,
   `bindmoney` int(11) DEFAULT '0',
   `pvpscore` int(11) DEFAULT '0',
-  `pvescore` int(11) DEFAULT '0'
+  `pvescore` int(11) DEFAULT '0',
+  PRIMARY KEY (`dbid`),
+  UNIQUE KEY `name` (`name`),
+  KEY `accountid` (`accountid`),
+  KEY `totalexp` (`totalexp`),
+  KEY `totalgodexp` (`totalgodexp`),
+  KEY `level` (`level`),
+  KEY `lastupdatetime` (`lastupdatetime`),
+  KEY `pvpscore` (`pvpscore`),
+  KEY `pvescore` (`pvescore`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -9812,7 +9889,8 @@ CREATE TABLE IF NOT EXISTS `t_user_dungeon_team` (
   `pverank` int(11) DEFAULT '0',
   `joinlimit` blob,
   `joinlimittime` int(11) DEFAULT '0',
-  `touchtime` int(11) DEFAULT '0'
+  `touchtime` int(11) DEFAULT '0',
+  PRIMARY KEY (`dbid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -9837,7 +9915,8 @@ CREATE TABLE IF NOT EXISTS `t_user_guild` (
   `membercontrib` blob,
   `household` blob,
   `userdata` blob,
-  `bundguild` blob
+  `bundguild` blob,
+  PRIMARY KEY (`guildid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -9865,7 +9944,8 @@ CREATE TABLE IF NOT EXISTS `t_user_guild_terr` (
   `guildpoints` int(11) DEFAULT '0',
   `building` blob,
   `bank` blob,
-  `bankhistory` blob
+  `bankhistory` blob,
+  PRIMARY KEY (`guildid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -9883,7 +9963,7 @@ INSERT INTO `t_user_guild_terr` (`guildid`, `deleted`, `exp`, `money`, `lumber`,
 --
 
 CREATE TABLE IF NOT EXISTS `t_user_mail` (
-  `mailid` bigint(21) NOT NULL,
+  `mailid` bigint(21) NOT NULL AUTO_INCREMENT,
   `senderid` bigint(21) DEFAULT '0',
   `recvid` bigint(21) DEFAULT '0',
   `sendername` varchar(32) DEFAULT NULL,
@@ -9900,8 +9980,13 @@ CREATE TABLE IF NOT EXISTS `t_user_mail` (
   `deletetime` int(11) DEFAULT '0',
   `forcedeletetime` int(11) DEFAULT '0',
   `para1` int(11) DEFAULT '0',
-  `para2` int(11) DEFAULT '0'
-) ENGINE=MyISAM AUTO_INCREMENT=67259222472953 DEFAULT CHARSET=latin1;
+  `para2` int(11) DEFAULT '0',
+  PRIMARY KEY (`mailid`),
+  KEY `senderid` (`senderid`),
+  KEY `recvid` (`recvid`),
+  KEY `starttime` (`starttime`),
+  KEY `deleted` (`deleted`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=67259222472953 ;
 
 --
 -- Dumping data for table `t_user_mail`
@@ -10090,15 +10175,15 @@ INSERT INTO `t_user_mail` (`mailid`, `senderid`, `recvid`, `sendername`, `recvna
 (66948743626882, 0, 66907818164375, 'H® th¯ng', 'TuanMinh', 1, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x0400000001000000, 0x1400010a20004710c00101810015b8e33c00000000000000, 1454784562, 1454505989, 3, 1455690914, 0, 3, -1742345928),
 (66948743626884, 0, 66907818164375, 'H® th¯ng', 'TuanMinh', 1, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x0400000001000000, 0x1500010aa0009910c00101830015b8e33c0000010000000000, 1454784577, 1454505989, 3, 1455690914, 0, 3, -1742345927),
 (66950909202269, 66950898978632, 66907818164375, 'qq1', 'TuanMinh', 1, 'TuanMinh', '', 1, 0x0400000001000000, 0x1300010a200096018001510fc538e43c00000000000000, 1454784581, 1454514250, 3, 1455690914, 0, 0, -1742325747),
-(66950935941005, 66950919950184, 66907818164375, 'qq2', 'TuanMinh', 1, 'TuanMinh', '', 1, 0x0400000001000000, 0x1300010a200096018001890f853ae43c00000000000000, 1454784581, 1454514352, 3, 1455690914, 0, 0, -1742325501),
+(66950935941005, 66950919950184, 66907818164375, 'qq2', 'TuanMinh', 1, 'TuanMinh', '', 1, 0x0400000001000000, 0x1300010a200096018001890f853ae43c00000000000000, 1454784581, 1454514352, 3, 1455690914, 0, 0, -1742325501);
+INSERT INTO `t_user_mail` (`mailid`, `senderid`, `recvid`, `sendername`, `recvname`, `isread`, `title`, `content`, `haveaccessory`, `accessory`, `log`, `limittime`, `starttime`, `deleted`, `deletetime`, `forcedeletetime`, `para1`, `para2`) VALUES
 (66950950621100, 66950943805341, 66907818164375, 'qq3', 'TuanMinh', 1, 'TuanMinh', '', 1, 0x0400000001000000, 0x1300010a200096018001a60f693be43c00000000000000, 1454784585, 1454514408, 3, 1455690914, 0, 0, -1742325356),
 (66953990185595, 0, 66953880871316, 'TuanMinh', 'What', 0, 'Bßu ki®n h® th¯ng', 'TuanMinh ðã nh§n  làm ð° ð®', 0, 0x0400000000000000, 0x0400000000000000, 1457118003, 1454526003, 0, 0, 0, 0, 0),
 (66954136986441, 0, 66953880871316, 'H® th¯ng', 'What', 0, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x1800010a22053a028205039c0048238df9e43c000001230000000000, 0x1800010a22053a028205039c0048238df9e43c000001230000000000, 1457118563, 1454526563, 0, 0, 0, 3, -1742297974),
 (66954136986443, 0, 66953880871316, 'H® th¯ng', 'What', 0, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x1800010a22053b02820a039c004a238df9e43c000001230000000000, 0x1800010a22053b02820a039c004a238df9e43c000001230000000000, 1457118563, 1454526563, 0, 0, 0, 3, -1742297973),
 (66954136986445, 0, 66953880871316, 'H® th¯ng', 'What', 0, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x1800010a22053c028214039c004c238df9e43c000001230000000000, 0x1800010a22053c028214039c004c238df9e43c000001230000000000, 1457118563, 1454526563, 0, 0, 0, 3, -1742297972),
 (66954136986447, 0, 66953880871316, 'H® th¯ng', 'What', 0, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x1800010a22053d02821e039c004e238df9e43c000001230000000000, 0x1800010a22053d02821e039c004e238df9e43c000001230000000000, 1457118563, 1454526563, 0, 0, 0, 3, -1742297971),
-(66954136986449, 0, 66953880871316, 'H® th¯ng', 'What', 0, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x1800010a22052d028201039c0050238df9e43c000001500000000000, 0x1800010a22052d028201039c0050238df9e43c000001500000000000, 1457118563, 1454526563, 0, 0, 0, 3, -1742297970);
-INSERT INTO `t_user_mail` (`mailid`, `senderid`, `recvid`, `sendername`, `recvname`, `isread`, `title`, `content`, `haveaccessory`, `accessory`, `log`, `limittime`, `starttime`, `deleted`, `deletetime`, `forcedeletetime`, `para1`, `para2`) VALUES
+(66954136986449, 0, 66953880871316, 'H® th¯ng', 'What', 0, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x1800010a22052d028201039c0050238df9e43c000001500000000000, 0x1800010a22052d028201039c0050238df9e43c000001500000000000, 1457118563, 1454526563, 0, 0, 0, 3, -1742297970),
 (66954136986451, 0, 66953880871316, 'H® th¯ng', 'What', 0, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x1800010a22052e028201039c0052238df9e43c000001500000000000, 0x1800010a22052e028201039c0052238df9e43c000001500000000000, 1457118563, 1454526563, 0, 0, 0, 3, -1742297969),
 (66954136986453, 0, 66953880871316, 'H® th¯ng', 'What', 0, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x1800010a220537028201039c0054238df9e43c000001500000000000, 0x1800010a220537028201039c0054238df9e43c000001500000000000, 1457118563, 1454526563, 0, 0, 0, 3, -1742297968),
 (66954136986455, 0, 66953880871316, 'H® th¯ng', 'What', 0, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x1800010a220538028201039c0056238df9e43c000001500000000000, 0x1800010a220538028201039c0056238df9e43c000001500000000000, 1457118563, 1454526563, 0, 0, 0, 3, -1742297967),
@@ -10271,7 +10356,8 @@ INSERT INTO `t_user_mail` (`mailid`, `senderid`, `recvid`, `sendername`, `recvna
 (67001222983174, 0, 66979805797017, 'H® th¯ng', 'QuyenAn', 1, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x0400000001000000, 0x1500010aa000e612c00102056e18f0ef3c00000a0000000000, 1455109412, 1454706182, 3, 1455690914, 0, 3, -1740038717),
 (67001222983177, 0, 66925419326862, 'H® th¯ng', 'ThienMa', 0, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x1400010a20004710c00101076e18f0ef3c00000000000000, 0x1400010a20004710c00101076e18f0ef3c00000000000000, 1457298182, 1454706182, 0, 0, 0, 3, -1740038716),
 (67001222983178, 0, 66925419326862, 'H® th¯ng', 'ThienMa', 0, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x1500010aa0009910c00101086e18f0ef3c0000010000000000, 0x1500010aa0009910c00101086e18f0ef3c0000010000000000, 1457298182, 1454706182, 0, 0, 0, 3, -1740038715),
-(67001889616129, 0, 66909877836376, 'H® th¯ng', 'LaoTo', 1, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x0400000001000000, 0x1300010a2000a11540010071d417f03c00000000000000, 1454968548, 1454708725, 3, 1455690914, 0, 3, -1740036249),
+(67001889616129, 0, 66909877836376, 'H® th¯ng', 'LaoTo', 1, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x0400000001000000, 0x1300010a2000a11540010071d417f03c00000000000000, 1454968548, 1454708725, 3, 1455690914, 0, 3, -1740036249);
+INSERT INTO `t_user_mail` (`mailid`, `senderid`, `recvid`, `sendername`, `recvname`, `isread`, `title`, `content`, `haveaccessory`, `accessory`, `log`, `limittime`, `starttime`, `deleted`, `deletetime`, `forcedeletetime`, `para1`, `para2`) VALUES
 (67001889616131, 0, 66909877836376, 'H® th¯ng', 'LaoTo', 1, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x0400000001000000, 0x1500010aa000e612c001020271d417f03c00000a0000000000, 1454968550, 1454708725, 3, 1455690914, 0, 3, -1740036248),
 (67001889878278, 0, 66906856620037, 'H® th¯ng', 'Kimochi', 1, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x0400000001000000, 0x1400010a20004710c001010471d417f03c00000000000000, 1455016813, 1454708726, 3, 1455690914, 0, 3, -1740036247),
 (67001889878279, 0, 66906856620037, 'H® th¯ng', 'Kimochi', 1, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x0400000001000000, 0x1500010aa0009910c001010571d417f03c0000010000000000, 1455016815, 1454708726, 3, 1455690914, 0, 3, -1740036246),
@@ -10285,8 +10371,7 @@ INSERT INTO `t_user_mail` (`mailid`, `senderid`, `recvid`, `sendername`, `recvna
 (67012334749705, 0, 67003172549733, 'H® th¯ng', 'Sh0ck', 0, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x1800010a22057b028201039c0008886886f23c000001500000000000, 0x1800010a22057b028201039c0008886886f23c000001500000000000, 1457340570, 1454748570, 0, 0, 0, 3, -1740005654),
 (67012334749707, 0, 67003172549733, 'H® th¯ng', 'Sh0ck', 0, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x1800010a22057c028201039c000a886886f23c000001500000000000, 0x1800010a22057c028201039c000a886886f23c000001500000000000, 1457340570, 1454748570, 0, 0, 0, 3, -1740005653),
 (67012334749709, 0, 67003172549733, 'H® th¯ng', 'Sh0ck', 0, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x1800010a220585028201039c000c886886f23c000001500000000000, 0x1800010a220585028201039c000c886886f23c000001500000000000, 1457340570, 1454748570, 0, 0, 0, 3, -1740005652),
-(67012334749711, 0, 67003172549733, 'H® th¯ng', 'Sh0ck', 0, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x1800010a220586028201039c000e886886f23c000001500000000000, 0x1800010a220586028201039c000e886886f23c000001500000000000, 1457340570, 1454748570, 0, 0, 0, 3, -1740005651);
-INSERT INTO `t_user_mail` (`mailid`, `senderid`, `recvid`, `sendername`, `recvname`, `isread`, `title`, `content`, `haveaccessory`, `accessory`, `log`, `limittime`, `starttime`, `deleted`, `deletetime`, `forcedeletetime`, `para1`, `para2`) VALUES
+(67012334749711, 0, 67003172549733, 'H® th¯ng', 'Sh0ck', 0, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x1800010a220586028201039c000e886886f23c000001500000000000, 0x1800010a220586028201039c000e886886f23c000001500000000000, 1457340570, 1454748570, 0, 0, 0, 3, -1740005651),
 (67014730747686, 66906856620037, 66980744274095, '', 'Jenifer', 1, 'Jenifer', '', 1, 0x0400000001000000, 0x1600010a2201253c8003b100218ff014f33c0000010000000000, 1455022941, 1454757710, 3, 1455690914, 0, 0, -1739995764),
 (67014750146363, 66906856620037, 66907915420050, '', 'AnGia', 1, 'Su Kien Nap The', 'Moc 200k', 1, 0x0400000001000000, 0x1600010a2201263c8003b100318fe815f33c0000010000000000, 1455045882, 1454757784, 3, 1455690914, 0, 0, -1739995679),
 (67014914772963, 0, 67014866538381, 'zZHoangLongZz', '1111', 0, 'Bßu ki®n h® th¯ng', 'zZHoangLongZz ðã nh§n  làm ð° ð®', 0, 0x0400000000000000, 0x0400000000000000, 1457350412, 1454758412, 0, 0, 0, 0, 0),
@@ -10456,7 +10541,8 @@ INSERT INTO `t_user_mail` (`mailid`, `senderid`, `recvid`, `sendername`, `recvna
 (67064558880391, 0, 67050400986251, 'H® th¯ng', 'HoKaGe', 1, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x0400000001000000, 0x1500010aa0009910c00101868635affe3c0000010000000000, 1455211778, 1454947789, 3, 1455690914, 0, 3, -1739687417),
 (67064596629190, 0, 67061868228811, 'H® th¯ng', 'HoaMy', 1, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x0400000001000000, 0x1300010a2000a1154001c58675b1fe3c00000000000000, 1455222383, 1454947933, 3, 1455690914, 0, 3, -1739687044),
 (67064596629192, 0, 67061868228811, 'H® th¯ng', 'HoaMy', 1, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x0400000001000000, 0x1500010aa000e612c00102c78675b1fe3c00000a0000000000, 1455222385, 1454947933, 3, 1455690914, 0, 3, -1739687043),
-(67064596629194, 0, 67050482251032, 'H® th¯ng', 'SinhTu', 1, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x0400000001000000, 0x1400010a20004710c00101c98675b1fe3c00000000000000, 1455208170, 1454947933, 3, 1455690914, 0, 3, -1739687042),
+(67064596629194, 0, 67050482251032, 'H® th¯ng', 'SinhTu', 1, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x0400000001000000, 0x1400010a20004710c00101c98675b1fe3c00000000000000, 1455208170, 1454947933, 3, 1455690914, 0, 3, -1739687042);
+INSERT INTO `t_user_mail` (`mailid`, `senderid`, `recvid`, `sendername`, `recvname`, `isread`, `title`, `content`, `haveaccessory`, `accessory`, `log`, `limittime`, `starttime`, `deleted`, `deletetime`, `forcedeletetime`, `para1`, `para2`) VALUES
 (67064596629196, 0, 67050482251032, 'H® th¯ng', 'SinhTu', 1, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x0400000001000000, 0x1500010aa0009910c00101cb8675b1fe3c0000010000000000, 1455208169, 1454947933, 3, 1455690914, 0, 3, -1739687041),
 (67065657265166, 66906856620037, 67050482251032, '', 'SinhTu', 1, 'Qua Nap the', 'Moc 200k', 1, 0x0400000001000000, 0x1600010a2201263c8003b100068ce5effe3c0000010000000000, 1455211807, 1454951979, 3, 1455690914, 0, 0, -1739679103),
 (67065732762686, 66906856620037, 66909586593373, '', 'Shurado', 1, 'Nap the tich luy', 'Moc 200k', 1, 0x0400000001000000, 0x1600010a2201273c8003b100388cc5f4fe3c0000010000000000, 1455211575, 1454952267, 3, 1455690914, 0, 0, -1739678644),
@@ -10480,8 +10566,7 @@ INSERT INTO `t_user_mail` (`mailid`, `senderid`, `recvid`, `sendername`, `recvna
 (67068423414918, 0, 67068211602024, 'H® th¯ng', 'DungNhi', 1, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x0400000001000000, 0x1800010a22058a028214039c0085a48d95ff3c000001230000000000, 1455223661, 1454962531, 3, 1455690914, 0, 3, -1739663940),
 (67068423414920, 0, 67068211602024, 'H® th¯ng', 'DungNhi', 1, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x0400000001000000, 0x1800010a22058b02821e039c0087a48d95ff3c000001230000000000, 1455223652, 1454962531, 3, 1455690914, 0, 3, -1739663939),
 (67068423414922, 0, 67068211602024, 'H® th¯ng', 'DungNhi', 0, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x1800010a22057b028201039c0089a48d95ff3c000001500000000000, 0x1800010a22057b028201039c0089a48d95ff3c000001500000000000, 1457554531, 1454962531, 0, 0, 0, 3, -1739663938),
-(67068423414924, 0, 67068211602024, 'H® th¯ng', 'DungNhi', 0, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x1800010a22057c028201039c008ba48d95ff3c000001500000000000, 0x1800010a22057c028201039c008ba48d95ff3c000001500000000000, 1457554531, 1454962531, 0, 0, 0, 3, -1739663937);
-INSERT INTO `t_user_mail` (`mailid`, `senderid`, `recvid`, `sendername`, `recvname`, `isread`, `title`, `content`, `haveaccessory`, `accessory`, `log`, `limittime`, `starttime`, `deleted`, `deletetime`, `forcedeletetime`, `para1`, `para2`) VALUES
+(67068423414924, 0, 67068211602024, 'H® th¯ng', 'DungNhi', 0, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x1800010a22057c028201039c008ba48d95ff3c000001500000000000, 0x1800010a22057c028201039c008ba48d95ff3c000001500000000000, 1457554531, 1454962531, 0, 0, 0, 3, -1739663937),
 (67068423414926, 0, 67068211602024, 'H® th¯ng', 'DungNhi', 0, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x1800010a220585028201039c008da48d95ff3c000001500000000000, 0x1800010a220585028201039c008da48d95ff3c000001500000000000, 1457554531, 1454962531, 0, 0, 0, 3, -1739663936),
 (67068423414928, 0, 67068211602024, 'H® th¯ng', 'DungNhi', 0, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x1800010a220586028201039c008fa48d95ff3c000001500000000000, 0x1800010a220586028201039c008fa48d95ff3c000001500000000000, 1457554531, 1454962531, 0, 0, 0, 3, -1739663935),
 (67070961235365, 66909586593373, 66907818164375, 'Shurado', 'TuanMinh', 1, '111', '', 1, 0x0400000001000000, 0x1700010a22013479824004ae00a3b3d919003d00000a0000000000, 1455284946, 1454972212, 3, 1455690914, 0, 0, -1739642596),
@@ -10660,7 +10745,8 @@ INSERT INTO `t_user_mail` (`mailid`, `senderid`, `recvid`, `sendername`, `recvna
 (67136915317136, 0, 67022987766995, 'H® th¯ng rao bán', 'SayYeah', 1, 'Rao bán th¤t bÕi: Träm Long Hµ Oän', '', 1, 0x0400000001000000, 0x1700010a22011b79823e04ae0010a654ee093d00000a0000000000, 1455535899, 1455223807, 3, 1455690914, 0, 1, -1739306746),
 (67136923443602, 0, 67022987766995, 'H® th¯ng rao bán', 'SayYeah', 1, 'Rao bán th¤t bÕi: Träm Long Chiªn Ngoa', '', 1, 0x0400000001000000, 0x1700010a22011a79824104ae0011a654ee093d00000a0000000000, 1455535901, 1455223838, 3, 1455690914, 0, 1, -1739306739),
 (67136923443603, 0, 67022987766995, 'H® th¯ng rao bán', 'SayYeah', 1, 'Rao bán th¤t bÕi: Tích Lû Kim Phong Hµ T¤t', '', 1, 0x0400000001000000, 0x1700010a22013479824004ae00d4a8480b0a3d00000a0000000000, 1455535903, 1455223838, 3, 1455690914, 0, 1, -1739306726),
-(67136923443604, 0, 67022987766995, 'H® th¯ng rao bán', 'SayYeah', 1, 'Rao bán th¤t bÕi: Träm Long Ðai', '', 1, 0x0400000001000000, 0x1700010a22011d79824204ae0005ac64240a3d00000a0000000000, 1455535904, 1455223838, 3, 1455690914, 0, 1, -1739306710),
+(67136923443604, 0, 67022987766995, 'H® th¯ng rao bán', 'SayYeah', 1, 'Rao bán th¤t bÕi: Träm Long Ðai', '', 1, 0x0400000001000000, 0x1700010a22011d79824204ae0005ac64240a3d00000a0000000000, 1455535904, 1455223838, 3, 1455690914, 0, 1, -1739306710);
+INSERT INTO `t_user_mail` (`mailid`, `senderid`, `recvid`, `sendername`, `recvname`, `isread`, `title`, `content`, `haveaccessory`, `accessory`, `log`, `limittime`, `starttime`, `deleted`, `deletetime`, `forcedeletetime`, `para1`, `para2`) VALUES
 (67136923443605, 0, 67022987766995, 'H® th¯ng rao bán', 'SayYeah', 1, 'Rao bán th¤t bÕi: Thiên C½ SÑ Hµ Thü', '', 1, 0x0400000001000000, 0x1700010a22012579823f04ae005caf403e0a3d00000a0000000000, 1455535906, 1455223838, 3, 1455690914, 0, 1, -1739306696),
 (67137885775665, 0, 67133936830894, 'H® th¯ng', 'Lye', 1, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x0400000001000000, 0x1300010a2000a11540013027d5c10f3d00000000000000, 1455486788, 1455227509, 3, 1455690914, 0, 3, -1739170837),
 (67137885775667, 0, 67133936830894, 'H® th¯ng', 'Lye', 1, 'Bßu ki®n h® th¯ng', 'V§t ph¦m khen thß·ng h® th¯ng', 1, 0x0400000001000000, 0x1500010aa000e612c001023227d5c10f3d00000a0000000000, 1455486791, 1455227509, 3, 1455690914, 0, 3, -1739170836),
@@ -10684,8 +10770,7 @@ INSERT INTO `t_user_mail` (`mailid`, `senderid`, `recvid`, `sendername`, `recvna
 (67151558695361, 0, 66907818164375, 'H® th¯ng rao bán', 'TuanMinh', 1, 'Ð¤u giá thành công: Nhiªp H°n Hµ T¤t', 'Ð¤u giá  [Nhiªp H°n Hµ T¤t] thành công\nT¯n Phí: 667 lßþng vàng, 0 lßþng bÕc, 0 ð°ng', 1, 0x0400000001000000, 0x1b00010a22212e79824004ae001395207a093d00000a94c2bd560000000000, 1455538890, 1455279667, 3, 1455690914, 0, 1, -1739066407),
 (67151558695362, 0, 67022987766995, 'H® th¯ng rao bán', 'SayYeah', 1, 'Rao bán thành công: Nhiªp H°n Hµ T¤t', 'Rao bán [Nhiªp H°n Hµ T¤t] thành công\nNgân lßþng thu: 667 lßþng vàng, 0 lßþng bÕc, 0 ð°ng', 1, 0x0400000000010000, 0x08000001b0c6650000000000, 1455552182, 1455279667, 3, 1455690914, 0, 1, -1739066407),
 (67151560792524, 0, 66907818164375, 'H® th¯ng rao bán', 'TuanMinh', 1, 'Ð¤u giá thành công: Nhiªp H°n Chiªn Giáp', 'Ð¤u giá  [Nhiªp H°n Chiªn Giáp] thành công\nT¯n Phí: 667 lßþng vàng, 0 lßþng bÕc, 0 ð°ng', 1, 0x0400000001000000, 0x1700010a22012a79824404ae00b2512d97123d00000a0000000000, 1455538891, 1455279675, 3, 1455690914, 0, 1, -1739066507),
-(67151560792525, 0, 67022987766995, 'H® th¯ng rao bán', 'SayYeah', 1, 'Rao bán thành công: Nhiªp H°n Chiªn Giáp', 'Rao bán [Nhiªp H°n Chiªn Giáp] thành công\nNgân lßþng thu: 667 lßþng vàng, 0 lßþng bÕc, 0 ð°ng', 1, 0x0400000000010000, 0x08000001b0c6650000000000, 1455552185, 1455279675, 3, 1455690914, 0, 1, -1739066507);
-INSERT INTO `t_user_mail` (`mailid`, `senderid`, `recvid`, `sendername`, `recvname`, `isread`, `title`, `content`, `haveaccessory`, `accessory`, `log`, `limittime`, `starttime`, `deleted`, `deletetime`, `forcedeletetime`, `para1`, `para2`) VALUES
+(67151560792525, 0, 67022987766995, 'H® th¯ng rao bán', 'SayYeah', 1, 'Rao bán thành công: Nhiªp H°n Chiªn Giáp', 'Rao bán [Nhiªp H°n Chiªn Giáp] thành công\nNgân lßþng thu: 667 lßþng vàng, 0 lßþng bÕc, 0 ð°ng', 1, 0x0400000000010000, 0x08000001b0c6650000000000, 1455552185, 1455279675, 3, 1455690914, 0, 1, -1739066507),
 (67151626328600, 0, 66907818164375, 'H® th¯ng rao bán', 'TuanMinh', 1, 'Hüy bö rao bán: PVP Hµ Phù (TC) S2', '', 1, 0x0400000001000000, 0x1b00010a22218c23825003b300e065f859ef3c00000755eeb9560000000000, 1455539129, 1455279925, 3, 1455690914, 0, 1, -1739171218),
 (67151777585994, 0, 67151631571487, 'Kelly', 'HMI', 0, 'Bßu ki®n h® th¯ng', 'Kelly ðã nh§n  làm ð° ð®', 0, 0x0400000000000000, 0x0400000000000000, 1457872502, 1455280502, 0, 0, 0, 0, 0),
 (67154486584688, 66906856620037, 67022987766995, '', 'SayYeah', 1, 'Nap The', '', 1, 0x0400000001000000, 0x1600010a2201263c8003b1006b65f99e133d0000010000000000, 1455552189, 1455290836, 3, 1455690914, 0, 0, -1739031211),
@@ -10857,7 +10942,8 @@ INSERT INTO `t_user_mail` (`mailid`, `senderid`, `recvid`, `sendername`, `recvna
 (67229602345066, 0, 66907818164375, 'H® th¯ng rao bán', 'TuanMinh', 0, 'Rao bán th¤t bÕi: Bông Tai (7x)', '', 1, 0x1700010a2201cd3b8246050302d372d8cf1f3d00000a0000000000, 0x1700010a2201cd3b8246050302d372d8cf1f3d00000a0000000000, 1458169380, 1455577380, 0, 0, 0, 1, -1731990490),
 (67229604966507, 0, 66907818164375, 'H® th¯ng rao bán', 'TuanMinh', 0, 'Rao bán th¤t bÕi: Ng÷c Bµi (7x)', '', 1, 0x1700010a2201ca3b82460502022472b0c61f3d00000a0000000000, 0x1700010a2201ca3b82460502022472b0c61f3d00000a0000000000, 1458169390, 1455577390, 0, 0, 0, 1, -1731990468),
 (67243807080998, 66908671707473, 67105017588588, 'ThanhHue', 'TuanAnh', 1, 'TuanAnh', '', 1, 0x0400000001000000, 0x1400010aa000213c80070b02d467283d0000020000000000, 1455949642, 1455631567, 1, 0, 0, 0, -1729842958),
-(67243877073473, 67157475816107, 67105017588588, 'GiaKhanh', 'TuanAnh', 1, 'TuanAnh', '', 1, 0x0400000001000000, 0x1400010aa000213c800740021c6f283d0000010000000000, 1455949645, 1455631834, 1, 0, 0, 0, -1729842870),
+(67243877073473, 67157475816107, 67105017588588, 'GiaKhanh', 'TuanAnh', 1, 'TuanAnh', '', 1, 0x0400000001000000, 0x1400010aa000213c800740021c6f283d0000010000000000, 1455949645, 1455631834, 1, 0, 0, 0, -1729842870);
+INSERT INTO `t_user_mail` (`mailid`, `senderid`, `recvid`, `sendername`, `recvname`, `isread`, `title`, `content`, `haveaccessory`, `accessory`, `log`, `limittime`, `starttime`, `deleted`, `deletetime`, `forcedeletetime`, `para1`, `para2`) VALUES
 (67256418315646, 66906856620037, 66908296578097, '', 'Bee', 0, 'Nap The', '', 1, 0x1600010a2201233c8003b100782da85a2b3d0000010000000000, 0x1600010a2201233c8003b100782da85a2b3d0000010000000000, 1458271675, 1455679675, 0, 0, 0, 0, -1729792090),
 (67256563019219, 66906856620037, 67255586794298, '', 'Assasin', 1, 'a', '', 1, 0x0400000001000000, 0x1400010aa000851f800380a34484223d0000010000000000, 1455939841, 1455680227, 0, 0, 0, 0, -1729791003),
 (67256564592086, 66906856620037, 67255586794298, '', 'Assasin', 1, 'a', '', 1, 0x0400000001000000, 0x1600010a2201263c8003b100902d505d2b3d0000010000000000, 1455939843, 1455680233, 0, 0, 0, 0, -1729790981),
@@ -10876,7 +10962,8 @@ INSERT INTO `t_user_mail` (`mailid`, `senderid`, `recvid`, `sendername`, `recvna
 CREATE TABLE IF NOT EXISTS `t_vars` (
   `name` varchar(64) NOT NULL DEFAULT '',
   `type` varchar(32) DEFAULT NULL,
-  `value` text
+  `value` text,
+  PRIMARY KEY (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -10904,7 +10991,8 @@ CREATE TABLE IF NOT EXISTS `t_war_area` (
   `iscreatefromdb` int(11) DEFAULT '0',
   `npcassign` blob,
   `commonnpcassign` blob,
-  `door` blob
+  `door` blob,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -10914,409 +11002,6 @@ CREATE TABLE IF NOT EXISTS `t_war_area` (
 INSERT INTO `t_war_area` (`id`, `egid`, `dwstart`, `dwlaststart`, `istate`, `lsaid`, `lsdid`, `lsrid`, `iscreatefromdb`, `npcassign`, `commonnpcassign`, `door`) VALUES
 (1, 66992757822750, 1455998400, 1454788800, 1, 0x35000100000001fc2005e4e43c000000000000000000000000000000000000000b060e000b060ed00a060e0000000020e1d4ae88dbfbbf0000, 0x0d0001000000011e5588f7ed3c00000000, 0x0400000000000000, 0, 0x681f1f010000b7110000004083460070dfc600000000000000000000803f00000000b7110000009c95460024e0c600000000000000000000803f00000000b911000000b48c46002ce2c60000000069212234000080bf00000000b7110000006c93460034dac600000000000000000000803f00000000b711000000548d460054ddc60000000069212234000080bf00000000b91100000088814600e8d5c600000000000000000000803f00000000b711000000d089460068ddc60000000069212234000080bf00000000b711000000207d4600e0ddc600000000000000000000803f00000000b811000000807c460068ddc600000000000000000000803f00000000b811000000b4914600fce4c600000000f304353ff30435bf00000000b711000000c88c4600d0e8c6000000000000803f2ebd3bb300000000b711000000388b4600d8e5c60000000069212234000080bf00000000b91100000068834600e8d5c600000000000000000000803f00000000b711000000d88b4600d8e5c60000000069212234000080bf00000000b9110000000c94460084dfc600000000000000000000803f00000000b7110000009c8b460064cdc600000000000000000000803f00000000b91100000094894600b4cdc600000000000000000000803f00000000b711000000d07c4600c0e4c600000000000000000000803f00000000b8110000006086460068d3c6000000000000803f2ebd3bb300000000b911000000b095460068cec600000000f00435bff70435bf00000000b9110000003895460098d5c600000000000000000000803f00000000b71100000070804600d0e8c600000000000080bf2ede4c3200000000b7110000003886460060dbc60000000069212234000080bf00000000b91100000048994600e0d3c600000000ef0435bff704353f00000000b81100000018884600d0e8c600000000000080bf2ede4c3200000000b811000000587c4600d4dfc600000000000000000000803f00000000b7110000004899460080d4c600000000000000000000803f00000000b711000000887e46000cdac60000000000a0b1bf00c6774200000000b9110000005c8a460044dec60000000069212234000080bf00000000b711000000907b4600e0ddc600000000000000000000803f00000000b711000064798e46e5e2dac6000000000059a3c300ca3d4200000000b9110000008089460028d2c600000000000000000000803f00000000b91100000078824600e8d5c600000000ef0435bff704353f00000000b91100000098944600b8e2c600000000ef0435bff704353f00000000b711000000f893460058e3c600000000000000000000803f00000000b71100002e5a8e46d883dac600000000808b9bc30000a0bd00000000b711000000287f4600d4d0c60000000000f0354000d6b44200000000b711000000f889460078cdc600000000000000000000803f00000000b71100000020994600a0d7c600000000000000000000803f00000000b7110000005c8a460084dac600000000000048430000000000000000b711000000fc8a4600c4ccc600000000000000000000803f00000000b711000000888b460038e5c60000000069212234000080bf00000000b811000000707d4600e8dfc600000000000000000000803f00000000b7110000000884460080e3c600000000000000000000803f00000000b711000000408d4600e0ddc60000000069212234000080bf00000000b711000000907b460020dac600000000000000000000803f00000000b7110000007896460068cec600000000000080bf2ede4c3200000000b811000000f0874600c8dcc60000000069212234000080bf00000000b7110000003494460024e0c600000000000000000000803f00000000b911000000208a460090cec600000000000000000000803f00000000b911000000ac8f460004cec60000000000000c420040bb4000000000b7110000003098460030d4c600000000000000000000803f00000000b711000000f884460078cdc6000000000000803f2ebd3bb300000000b911000000888b4600b8cec600000000000000000000803f00000000b711000000b48c460054ddc60000000069212234000080bf00000000b7110000003c9146001ce3c60000000069212234000080bf00000000b911000000b095460030cfc600000000f00435bff70435bf00000000b71100000078964600f0cdc600000000000080bf2ede4c3200000000b711000000687b4600e4cfc6000000000088e0c00091d24200000000b9110000003089460058dec60000000069212234000080bf00000000b711000000f08c460058e8c6000000000000803f2ebd3bb300000000b7110000004880460068cec6000000000000803f2ebd3bb300000000b7110000006c9346004cd6c600000000000000000000803f00000000b711000000788c460078e1c60000000069212234000080bf00000000b8110000005898460070e4c600000000000000000000803f00000000b711000000d494460024e0c600000000000000000000803f00000000b711000000348a460094d9c60000000000005c430000f0c200000000b711000000b0904600f0d2c600000000000080bf2ede4c3200000000b8110000004088460070e9c600000000000080bf2ede4c3200000000b7110000005889460008e8c600000000000080bf2ede4c3200000000b81100000040924600c0e4c600000000f304353ff30435bf00000000b7110000009c8b4600c4ccc600000000000000000000803f00000000b811000000307c460048e4c600000000000000000000803f00000000b711000000e87d46001cd4c60000000000808bbf00c3d44200000000b811000000707d460048e4c600000000000000000000803f00000000b911000000987d4600a4d3c6000000000000a9be00a0864100000000b7110000002099460098d0c600000000ef0435bff704353f00000000b7110000004083460080e3c600000000000000000000803f00000000b711000000a898460030d4c600000000000000000000803f00000000b811000000d098460020d0c600000000ef0435bff704353f00000000b7110000006888460080e3c60000000069212234000080bf00000000b711000000e0834600b0d6c600000000000000000000803f00000000b8110000006086460098e4c600000000f00435bff70435bf00000000b7110000001888460038dbc60000000069212234000080bf00000000b9110000001095460098dfc600000000ef0435bff704353f00000000b81100000090924600f8e3c6000000000000803f2ebd3bb300000000b911000000d0934600b8e2c600000000ef0435bff704353f00000000b9110000001c8e460044dec60000000069212234000080bf00000000b711000000f87c46000cdac6000000000080b2c0000c7b4200000000b711000000e088460068ddc60000000069212234000080bf00000000b711000000f0824600d0d9c600000000000000000000803f00000000b711000000a8984600a0d7c600000000000000000000803f00000000b711000000a096460008e8c6000000000000803f2ebd3bb300000000b81100000060864600a0d2c6000000000000803f2ebd3bb300000000b911000000fc8a460034dfc60000000069212234000080bf00000000b911000000508c4600f0cdc600000000000000000000803f00000000b811000000e8854600b8cec600000000f304353ff30435bf00000000b7110000003c914600a4cec60000000000a06d400000813e00000000b8110000007490460004cec600000000008ff042000cb64100000000b7110000006888460060e5c600000000f304353ff30435bf00000000b81100000074904600a4cec6000000000020d74200a06c4100000000b811000000e8854600c8cdc600000000f304353ff30435bf00000000b9110000008494460084d5c600000000000000000000803f00000000b91100000060864600c8cdc600000000000000000000803f00000000b7110000005889460068ddc60000000069212234000080bf00000000b811000000e87d460094d9c600000000ef0435bff704353f00000000b711000000d494460044e3c600000000000000000000803f00000000b811000000d098460070e4c600000000000000000000803f00000000b711000000a08c460070e9c6000000000000803f2ebd3bb300000000b7110000007887460060dbc60000000069212234000080bf00000000b711000000e097460010e5c600000000000000000000803f00000000b711000000d88b4600d8d1c600000000000000000000803f00000000b911000000148c460034dfc60000000069212234000080bf00000000b811000000a87c4600bccfc60000000000c054bf00482b4200000000b7110000008098460088e0c600000000000000000000803f00000000b911000000e08d460028d7c60000000069212234000080bf00000000b711000000fc8a46003cd2c600000000000000000000803f00000000b711000000088e460010e5c600000000f00435bff70435bf00000000b711000000b081460070dfc600000000000000000000803f00000000b91100000018834600a8dec600000000000000000000803f00000000b81100000030984600e8dfc600000000000000000000803f00000000b811000000088e460058e8c6000000000000803f2ebd3bb300000000b7110000002099460010e5c600000000000000000000803f00000000b7110000002099460088e0c600000000000000000000803f00000000b8110000002490460004d3c600000000000080bf2ede4c3200000000b7110000003c8c4600c4ccc600000000000000000000803f00000000b711000000c88c460010e5c6000000000eefc3be60836cbf00000000b911000000f889460078d7c60000000069212234000080bf00000000b811000000e08d4600f8e8c6000000000000803f2ebd3bb300000000b911000000b48c46009ce0c60000000069212234000080bf00000000b7110000005898460078dcc600000000000000000000803f00000000b911000000d87e460054d3c6000000000040493f0010a54200000000b711000000d07c460060e0c600000000000000000000803f00000000b711000000b0814600b0d6c600000000000000000000803f00000000b7110000005c8f460044e3c60000000069212234000080bf00000000b71100000058894600a8e8c600000000000080bf2ede4c3200000000b91100000060864600b8cec600000000f304353ff304353f00000000b7110000008098460010e5c600000000000000000000803f00000000b911000000e489460044dec60000000069212234000080bf00000000b7110000000c8a4600c4d1c600000000000000000000803f00000000b711000000b897460038d1c600000000000000000000803f00000000b7110000005c8a46003cd2c600000000000000000000803f00000000b711000000e097460088e0c600000000000000000000803f00000000b91100000068834600b8e2c600000000000000000000803f00000000b711000000f889460010e5c60000000017efc33e5e836cbf00000000b91100000000824600a8dec600000000ef0435bff704353f00000000b7110000007882460080e3c600000000000000000000803f00000000b7110000002099460078dcc600000000000000000000803f00000000b911000000fc8a4600dcd2c600000000ef0435bff704353f00000000b711000000f48d460054ddc60000000069212234000080bf00000000b811000000d8864600c8dcc60000000069212234000080bf00000000b9110000005889460028d7c60000000069212234000080bf00000000b911000000b0814600b8e2c600000000000000000000803f00000000b7110000001086460080e3c60000000069212234000080bf00000000b711000000f884460090cec6000000000000803f2ebd3bb300000000b711000000a87c46001cd4c60000000000508bc00059de4200000000b711000000c085460018d3c6000000000000803f2ebd3bb300000000b711000000a096460048e9c6000000000000803f2ebd3bb300000000b7110000005c8a4600c4ccc600000000000000000000803f00000000b71100002a748e460084dac600000000800aa2c30000000000000000b711000000508c460008e3c60000000069212234000080bf00000000b911000000587c4600a4d3c60000000000a0acc000d8a14200000000b711000000649146008ccdc60000000000e8eb4100808a4000000000b711000000b8834600d0d9c600000000000000000000803f00000000b8110000009885460020e4c600000000f00435bff70435bf00000000b711000000108b460078cdc600000000000000000000803f00000000b711000000b897460078dcc600000000000000000000803f00000000b711000000a8894600d8ccc600000000000000000000803f00000000b711000000b08b4600e0d8c6000000000000f041000052c300000000b7110000004c8b4600c4d1c600000000000000000000803f00000000b7110000005898460038d1c600000000ef0435bff704353f00000000b7110000004c9046001ce3c60000000069212234000080bf00000000b7110000c3c48e460084dac600000000c030b6c30000000000000000b711000000d0984600e8d0c600000000ef0435bff704353f00000000b711000000ac8a4600c4d1c600000000000000000000803f00000000b711000000b0864600c0dac60000000069212234000080bf00000000b7110000007882460070dfc600000000000000000000803f00000000b911000000188d460050d7c60000000069212234000080bf00000000b9110000006081460078cdc6000000000000803f2ebd3bb300000000b811000000488a460068d3c600000000000000000000803f00000000b711000000ac94460034dac600000000000000000000803f00000000b9110000003881460030cfc6000000000000803f2ebd3bb300000000b91100000060954600b8e2c600000000000000000000803f00000000b711000000fc8a4600fcdac6000000000000f0420000704200000000b7110000003089460048e9c600000000000080bf2ede4c3200000000b811000000e48e4600b4dcc60000000069212234000080bf00000000b711000000d886460080e3c60000000069212234000080bf00000000b81100000028874600c0e4c600000000f00435bff70435bf00000000b711000000907b4600c0e4c600000000000000000000803f00000000b71100000018834600b0d6c600000000000000000000803f00000000b7110000006c93460024e0c600000000000000000000803f00000000b711000000208a460078e1c60000000069212234000080bf00000000b71100000048804600c8cdc6000000000000803f2ebd3bb300000000b911000000648c460014d2c600000000000080bf2ede4c3200000000b711000000f8844600f0cdc6000000000000803f2ebd3bb300000000b7110000006491460004cec600000000008ce44100804c4000000000b71100000030984600a0d7c600000000000000000000803f00000000b8110000005898460048d0c600000000ef0435bff704353f00000000b911000000a898460068d3c600000000ef0435bff704353f00000000b7110000007896460008cfc600000000000080bf2ede4c3200000000b71100000078824600b0d6c600000000000000000000803f00000000b7110000008890460090d3c600000000000080bf2ede4c3200000000b7110000005c8a460034dac60000000000004843000020c200000000b911000000b888460008e8c600000000f00435bff70435bf00000000b711000000607e460060e0c600000000000000000000803f00000000b8110000002490460064d2c600000000000080bf2ede4c3200000000b91100000078824600b8e2c600000000ef0435bff704353f00000000b7110000000889460070e4c600000000f304353ff30435bf00000000b71100000088814600d0d9c600000000000000000000803f00000000b911000000b0954600c8cdc600000000f00435bff70435bf00000000b711000000508c460008d9c600000000000048c200003ec300000000b7110000009c8b46003cd2c600000000000000000000803f00000000b911000000348a46009ce0c60000000069212234000080bf00000000b911000000648c4600bce3c60000000069212234000080bf00000000b711000000c0854600e0d3c6000000000000803f2ebd3bb300000000b711000000708a460078cdc600000000000000000000803f00000000b911000000b888460070e9c600000000f00435bff70435bf00000000b71100000050874600c0dac60000000069212234000080bf00000000b9110000007c8d460044dec60000000069212234000080bf00000000b7110000007080460030e8c600000000000080bf2ede4c3200000000b911000000ac8f4600a4cec60000000000c2e94200f03b4100000000b911000000688d460008e8c600000000f304353ff304353f00000000b811000000d0984600e8dfc600000000000000000000803f00000000b7110000688c8e4614addac600000000001aa8c30050a44100000000b7110000006c8e460044e3c60000000069212234000080bf00000000b711000009718e46698edac6000000004042a1c30090a64000000000b711000000b090460050d2c600000000000080bf2ede4c3200000000b9110000000893460098d5c600000000000000000000803f00000000b811000000887e46005cd0c60000000000a09abf00407b4200000000b711000000587c460084d0c60000000000d8b2c0000fd44200000000b7110000004c95460034dac600000000000000000000803f00000000b711000000c49546004cd6c600000000000000000000803f00000000b811000000587c460094d9c600000000f304353ff304353f00000000b911000000688d4600d0e8c6000000000000803f2ebd3bb300000000b911000000149146005ce4c600000000f304353ff30435bf00000000b71100000058894600e0ddc60000000069212234000080bf00000000b711000000b897460080d4c600000000000000000000803f00000000b91100000010904600e8e4c6000000000000803f2ebd3bb300000000b71100000028824600d0d9c600000000000000000000803f00000000b711000000e88a460038e5c60000000069212234000080bf00000000b711000000fc9446004cd6c600000000000000000000803f00000000b711000000687b46001cd4c60000000000240cc10001d74200000000b7110000004880460030cfc6000000000000803f2ebd3bb300000000b711000000908d460098e4c600000000f00435bff70435bf00000000b711000000607e4600e0ddc600000000000000000000803f00000000b81100000050874600c8dcc60000000069212234000080bf00000000b711000000a096460080e8c6000000000000803f2ebd3bb300000000b811000000b88d460070e9c6000000000000803f2ebd3bb300000000b911000000b4914600bce3c600000000f304353ff304353f00000000b91100000090974600e0d3c600000000ef0435bff704353f00000000b711000000607e4600c0e4c600000000000000000000803f00000000b711000000907b460060e0c600000000000000000000803f00000000b7110000003093460058e3c600000000000000000000803f00000000b711000000b081460080e3c600000000000000000000803f00000000b711000000a087460080e3c60000000069212234000080bf00000000b911000000e097460068d3c600000000ef0435bff704353f00000000b91100000030844600c0d5c600000000ef0435bff704353f00000000b711000000208a460030e3c60000000069212234000080bf00000000ba11000000e88a460090d3c600000000000000000000803f00000000b711000000b8884600e8e4c600000000f304353ff30435bf00000000b81100000008984600d8dbc600000000000000000000803f00000000b711000000988a4600d8e5c60000000069212234000080bf00000000b711000000349446004cd6c600000000000000000000803f00000000b911000000408d460098e9c6000000000000803f2ebd3bb300000000b711000000e083460070dfc600000000000000000000803f00000000b7110000009c95460044e3c600000000000000000000803f00000000b811000000c07d460068ddc600000000000000000000803f00000000b711000000848a4600fcdac600000000000034430000704200000000b711000000788c4600d8e5c60000000069212234000080bf00000000b911000000b8884600a8e8c600000000f00435bff70435bf00000000b811000000487d46000cd0c60000000000c01e3f00e8804200000000b8110000009c8b460054d3c600000000000000000000803f00000000b911000000a893460098d5c600000000000000000000803f00000000b711000000188d460048e4c600000000f00435bff70435bf00000000b711000000987d4600acd0c6000000000000a2be00e8ee4100000000b711000000c08a4600e0d8c60000000000001643000052c300000000b71100000090974600a0d7c600000000000000000000803f00000000b811000000e097460098d0c600000000ef0435bff704353f00000000b911000000187b460054d3c6000000000080d3c00078514200000000b7110000007080460070e9c600000000000080bf2ede4c3200000000b711000000c085460078d2c6000000000000803f2ebd3bb300000000b811000000d0984600d8dbc600000000000000000000803f00000000b711000000287f46001cd4c60000000000403840009dca4200000000b711000000d886460060dbc60000000069212234000080bf00000000b81100000074904600b4dcc60000000069212234000080bf00000000b9110000006081460040cec6000000000000803f2ebd3bb300000000b7110000000c94460034dac600000000000000000000803f000000000000, 0x670003000000560b000000e003810100e88a460030d4c600000000000000000000803f00000000560b000000ca0d810100c88c460050cdc600000000000000000000803f00000000560b0000000d13810100b888460028cdc600000000000000000000803f000000000000, 0x5b000300000001590b000000608b460078e6c60000000069212234000080bf0000000001590b000000c08a460010ccc600000000000000000000803f0000000001590b000000388b4600e8d0c600000000000000000000803f000000000000);
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `administrator`
---
-ALTER TABLE `administrator`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `auth_assignment`
---
-ALTER TABLE `auth_assignment`
-  ADD PRIMARY KEY (`item_name`,`user_id`);
-
---
--- Indexes for table `auth_group`
---
-ALTER TABLE `auth_group`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `auth_item`
---
-ALTER TABLE `auth_item`
-  ADD PRIMARY KEY (`name`),
-  ADD KEY `rule_name` (`rule_name`),
-  ADD KEY `idx-auth_item-type` (`type`);
-
---
--- Indexes for table `auth_item_child`
---
-ALTER TABLE `auth_item_child`
-  ADD PRIMARY KEY (`parent`,`child`),
-  ADD KEY `child` (`child`);
-
---
--- Indexes for table `auth_rule`
---
-ALTER TABLE `auth_rule`
-  ADD PRIMARY KEY (`name`);
-
---
--- Indexes for table `news`
---
-ALTER TABLE `news`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `news_categories`
---
-ALTER TABLE `news_categories`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `request_teacher_list`
---
-ALTER TABLE `request_teacher_list`
-  ADD PRIMARY KEY (`teacherdbid`),
-  ADD KEY `publishtime` (`publishtime`);
-
---
--- Indexes for table `t_account`
---
-ALTER TABLE `t_account`
-  ADD PRIMARY KEY (`accountid`),
-  ADD UNIQUE KEY `name` (`name`),
-  ADD KEY `ll` (`ll`);
-
---
--- Indexes for table `t_auction_item`
---
-ALTER TABLE `t_auction_item`
-  ADD PRIMARY KEY (`auctionitemid`);
-
---
--- Indexes for table `t_card_saving`
---
-ALTER TABLE `t_card_saving`
-  ADD PRIMARY KEY (`idx`),
-  ADD KEY `name` (`name`),
-  ADD KEY `stime` (`stime`);
-
---
--- Indexes for table `t_cct`
---
-ALTER TABLE `t_cct`
-  ADD KEY `tm` (`tm`);
-
---
--- Indexes for table `t_cct24h`
---
-ALTER TABLE `t_cct24h`
-  ADD PRIMARY KEY (`idx`),
-  ADD KEY `tm` (`tm`);
-
---
--- Indexes for table `t_consign`
---
-ALTER TABLE `t_consign`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `t_defend_equip_rank`
---
-ALTER TABLE `t_defend_equip_rank`
-  ADD PRIMARY KEY (`dbid`),
-  ADD KEY `point` (`point`),
-  ADD KEY `inserttime` (`inserttime`);
-
---
--- Indexes for table `t_event`
---
-ALTER TABLE `t_event`
-  ADD PRIMARY KEY (`idx`);
-
---
--- Indexes for table `t_gift`
---
-ALTER TABLE `t_gift`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `recvid` (`recvid`),
-  ADD KEY `deleted` (`deleted`);
-
---
--- Indexes for table `t_gold_saving`
---
-ALTER TABLE `t_gold_saving`
-  ADD PRIMARY KEY (`idx`),
-  ADD KEY `name` (`name`),
-  ADD KEY `ctime` (`ctime`);
-
---
--- Indexes for table `t_gold_used`
---
-ALTER TABLE `t_gold_used`
-  ADD PRIMARY KEY (`idx`),
-  ADD KEY `name` (`name`),
-  ADD KEY `utime` (`utime`),
-  ADD KEY `actorid` (`actorid`);
-
---
--- Indexes for table `t_guild_kill_record`
---
-ALTER TABLE `t_guild_kill_record`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `killusercnt` (`killusercnt`);
-
---
--- Indexes for table `t_guild_war_pair`
---
-ALTER TABLE `t_guild_war_pair`
-  ADD PRIMARY KEY (`guildid`),
-  ADD KEY `dectime` (`dectime`);
-
---
--- Indexes for table `t_login`
---
-ALTER TABLE `t_login`
-  ADD PRIMARY KEY (`loginindex`),
-  ADD KEY `accountid` (`accountid`),
-  ADD KEY `logintime` (`logintime`);
-
---
--- Indexes for table `t_log_acct`
---
-ALTER TABLE `t_log_acct`
-  ADD PRIMARY KEY (`idx`);
-
---
--- Indexes for table `t_log_act`
---
-ALTER TABLE `t_log_act`
-  ADD PRIMARY KEY (`idx`);
-
---
--- Indexes for table `t_log_gitem`
---
-ALTER TABLE `t_log_gitem`
-  ADD PRIMARY KEY (`idx`);
-
---
--- Indexes for table `t_log_log`
---
-ALTER TABLE `t_log_log`
-  ADD PRIMARY KEY (`idx`);
-
---
--- Indexes for table `t_main_trump_rank`
---
-ALTER TABLE `t_main_trump_rank`
-  ADD PRIMARY KEY (`dbid`),
-  ADD KEY `point` (`point`),
-  ADD KEY `inserttime` (`inserttime`);
-
---
--- Indexes for table `t_murder`
---
-ALTER TABLE `t_murder`
-  ADD PRIMARY KEY (`dbid`);
-
---
--- Indexes for table `t_new`
---
-ALTER TABLE `t_new`
-  ADD PRIMARY KEY (`idx`);
-
---
--- Indexes for table `t_pve_rank`
---
-ALTER TABLE `t_pve_rank`
-  ADD PRIMARY KEY (`rank`);
-
---
--- Indexes for table `t_schedule`
---
-ALTER TABLE `t_schedule`
-  ADD PRIMARY KEY (`idx`);
-
---
--- Indexes for table `t_storage_item`
---
-ALTER TABLE `t_storage_item`
-  ADD PRIMARY KEY (`storageitemid`);
-
---
--- Indexes for table `t_student`
---
-ALTER TABLE `t_student`
-  ADD PRIMARY KEY (`studentdbid`),
-  ADD KEY `teacherdbid` (`teacherdbid`);
-
---
--- Indexes for table `t_teacher`
---
-ALTER TABLE `t_teacher`
-  ADD PRIMARY KEY (`teacherdbid`);
-
---
--- Indexes for table `t_ui`
---
-ALTER TABLE `t_ui`
-  ADD PRIMARY KEY (`idx`);
-
---
--- Indexes for table `t_user`
---
-ALTER TABLE `t_user`
-  ADD PRIMARY KEY (`dbid`),
-  ADD UNIQUE KEY `name` (`name`),
-  ADD KEY `accountid` (`accountid`),
-  ADD KEY `totalexp` (`totalexp`),
-  ADD KEY `totalgodexp` (`totalgodexp`),
-  ADD KEY `level` (`level`),
-  ADD KEY `lastupdatetime` (`lastupdatetime`),
-  ADD KEY `pvpscore` (`pvpscore`),
-  ADD KEY `pvescore` (`pvescore`);
-
---
--- Indexes for table `t_user_dungeon_team`
---
-ALTER TABLE `t_user_dungeon_team`
-  ADD PRIMARY KEY (`dbid`);
-
---
--- Indexes for table `t_user_guild`
---
-ALTER TABLE `t_user_guild`
-  ADD PRIMARY KEY (`guildid`);
-
---
--- Indexes for table `t_user_guild_terr`
---
-ALTER TABLE `t_user_guild_terr`
-  ADD PRIMARY KEY (`guildid`);
-
---
--- Indexes for table `t_user_mail`
---
-ALTER TABLE `t_user_mail`
-  ADD PRIMARY KEY (`mailid`),
-  ADD KEY `senderid` (`senderid`),
-  ADD KEY `recvid` (`recvid`),
-  ADD KEY `starttime` (`starttime`),
-  ADD KEY `deleted` (`deleted`);
-
---
--- Indexes for table `t_vars`
---
-ALTER TABLE `t_vars`
-  ADD PRIMARY KEY (`name`);
-
---
--- Indexes for table `t_war_area`
---
-ALTER TABLE `t_war_area`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `auth_group`
---
-ALTER TABLE `auth_group`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `news`
---
-ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `news_categories`
---
-ALTER TABLE `news_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `t_account`
---
-ALTER TABLE `t_account`
-  MODIFY `accountid` bigint(21) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=198;
---
--- AUTO_INCREMENT for table `t_auction_item`
---
-ALTER TABLE `t_auction_item`
-  MODIFY `auctionitemid` bigint(21) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=67244672944396;
---
--- AUTO_INCREMENT for table `t_card_saving`
---
-ALTER TABLE `t_card_saving`
-  MODIFY `idx` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=110;
---
--- AUTO_INCREMENT for table `t_event`
---
-ALTER TABLE `t_event`
-  MODIFY `idx` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `t_gift`
---
-ALTER TABLE `t_gift`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `t_gold_saving`
---
-ALTER TABLE `t_gold_saving`
-  MODIFY `idx` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `t_gold_used`
---
-ALTER TABLE `t_gold_used`
-  MODIFY `idx` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6324;
---
--- AUTO_INCREMENT for table `t_login`
---
-ALTER TABLE `t_login`
-  MODIFY `loginindex` bigint(21) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1734;
---
--- AUTO_INCREMENT for table `t_log_acct`
---
-ALTER TABLE `t_log_acct`
-  MODIFY `idx` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `t_log_act`
---
-ALTER TABLE `t_log_act`
-  MODIFY `idx` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `t_log_gitem`
---
-ALTER TABLE `t_log_gitem`
-  MODIFY `idx` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `t_log_log`
---
-ALTER TABLE `t_log_log`
-  MODIFY `idx` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `t_new`
---
-ALTER TABLE `t_new`
-  MODIFY `idx` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `t_schedule`
---
-ALTER TABLE `t_schedule`
-  MODIFY `idx` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `t_storage_item`
---
-ALTER TABLE `t_storage_item`
-  MODIFY `storageitemid` bigint(21) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `t_ui`
---
-ALTER TABLE `t_ui`
-  MODIFY `idx` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `t_user_mail`
---
-ALTER TABLE `t_user_mail`
-  MODIFY `mailid` bigint(21) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=67259222472953;
 --
 -- Constraints for dumped tables
 --
