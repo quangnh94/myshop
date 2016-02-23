@@ -1,5 +1,6 @@
 <?php
 
+use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 ?>
 <div id="wrapper">
@@ -17,8 +18,7 @@ use yii\widgets\ActiveForm;
     </div>
 
     <div class="footer">
-        <input type="submit" name="submit" value="Đăng nhập" class="button" />
-        <input type="submit" name="submit" value="Đăng ký" class="register" />
+        <?= Html::submitButton('Đăng ký', ['class' => 'btn btn-success']) ?>
     </div>
     <!--</form>-->
     <?php ActiveForm::end(); ?>

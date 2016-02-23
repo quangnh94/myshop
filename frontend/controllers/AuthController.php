@@ -19,7 +19,6 @@ class AuthController extends BaseController {
     }
 
     public function actionLogin() {
-        $this->layout = 'user';
         if (!Yii::$app->user->isGuest) {
             return $this->redirect($this->baseUrl . 'index', 302);
         }
@@ -37,11 +36,11 @@ class AuthController extends BaseController {
     }
 
     public function actionLogout() {
-        
+        Yii::$app->user->logout();
+        return $this->redirect('trang-chu.html');
     }
 
     public function actionRegister() {
-        $this->layout = 'user';
         $model = new RegisterForm();
         if ($model->load(\Yii::$app->request->post())) {
             $data = new TAccount();
