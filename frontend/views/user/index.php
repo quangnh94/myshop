@@ -9,7 +9,6 @@ use yii\widgets\LinkPager;
             <ul>
                 <li></li>
                 <li></li>
-                <li>Nạp thẻ</li>
             </ul>
             <ul class="nav nav-pills">
                 <li role="presentation" class="active"><a href="#">Thông tin tài khoản</a></li>
